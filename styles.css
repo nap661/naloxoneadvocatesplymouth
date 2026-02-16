@@ -342,4 +342,3 @@ a{ color:inherit; }
   .grid--3, .grid--2{ grid-template-columns: 1fr; }
   .footer__grid{ grid-template-columns: 1fr; }
 }
-
