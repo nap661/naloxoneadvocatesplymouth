@@ -1,80 +1,885 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="styles-built.css" rel="stylesheet">
-  <title>Naloxone Advocates Plymouth</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Naloxone Advocates Plymouth CIC</title>
+  <meta name="description" content="Free naloxone training and kits for Plymouth and Devon communities. Peer-led, stigma-free harm reduction support." />
+
+  <style>
+    :root{
+      --bg:#f7f8fb;
+      --text:#0b1220;
+      --muted:#556070;
+
+      --card:#ffffff;
+      --border: rgba(15,23,42,0.12);
+      --shadow: 0 18px 40px rgba(2,6,23,0.10);
+
+      --amber:#facc15;
+      --amber2:#f59e0b;
+      --lime:#a3e635;
+      --blue:#3b82f6;
+      --purple:#8b5cf6;
+
+      --radius:24px;
+      --max:1200px;
+
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(900px 650px at 20% -10%, rgba(59,130,246,.16), transparent 60%),
+        radial-gradient(950px 700px at 80% 0%, rgba(250,204,21,.18), transparent 55%),
+        radial-gradient(900px 650px at 50% 70%, rgba(139,92,246,.12), transparent 60%),
+        var(--bg);
+      line-height:1.55;
+    }
+
+    .wrap{ max-width:var(--max); margin:0 auto; padding:0 20px; }
+    a{ color:inherit; }
+    .muted{ color:var(--muted); }
+    .small{ font-size:.92rem; }
+    .right{ display:flex; justify-content:flex-end; margin-top:14px; }
+    .center{ display:flex; justify-content:center; margin-top:18px; }
+    .link{ color:#1d4ed8; text-decoration:none; font-weight:800; }
+    .link:hover{ text-decoration:underline; }
+
+    /* topbar */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      background: linear-gradient(90deg, var(--amber), var(--lime));
+      box-shadow: 0 10px 24px rgba(2,6,23,.14);
+      border-bottom: 1px solid rgba(255,255,255,.25);
+    }
+    .topbar__inner{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; padding:14px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      text-decoration:none; font-weight:1000; letter-spacing:.2px;
+      white-space:nowrap;
+    }
+    .brand__logo{
+      width:38px; height:38px; display:grid; place-items:center;
+      border-radius:999px;
+      background: rgba(255,255,255,.88);
+      box-shadow: 0 10px 24px rgba(2,6,23,.12);
+      font-weight:1000;
+    }
+    .nav{ display:flex; gap:10px; flex-wrap:wrap; justify-content:center; }
+    .nav__link{
+      text-decoration:none;
+      padding:10px 12px;
+      border-radius:14px;
+      font-weight:850;
+      color: rgba(11,18,32,.88);
+    }
+    .nav__link:hover{ background: rgba(255,255,255,.25); }
+    .nav__link.is-active{ background: rgba(255,255,255,.35); }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      text-decoration:none;
+      font-weight:900;
+      border: 1px solid rgba(15,23,42,.14);
+      cursor:pointer;
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease, opacity .12s ease;
+      user-select:none;
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 12px 24px rgba(2,6,23,.12); }
+    .btn--block{ width:100%; }
+    .btn--primary{ background: linear-gradient(90deg, var(--amber), var(--lime)); }
+    .btn--dark{ background:#0b1220; color:#fff; border-color: rgba(255,255,255,.12); }
+    .btn--soft{ background: rgba(59,130,246,.10); border-color: rgba(59,130,246,.22); color:#0b1220; }
+
+    /* hero */
+    .hero{ padding: 34px 0 10px; }
+    .hero__inner{
+      display:grid;
+      grid-template-columns: 1.25fr .9fr;
+      gap: 26px;
+      align-items:center;
+    }
+    .pill{
+      display:inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(59,130,246,.12);
+      border: 1px solid rgba(59,130,246,.22);
+      font-weight:900;
+    }
+    .hero__title{
+      margin: 14px 0 10px;
+      font-size: clamp(38px, 4.6vw, 66px);
+      line-height:1.02;
+      letter-spacing:-.8px;
+      font-weight:1000;
+    }
+    .hero__grad{
+      background: linear-gradient(90deg, var(--amber), var(--lime));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .hero__sub{ margin:0; max-width: 60ch; font-size:1.06rem; color: var(--muted); font-weight:650; }
+    .hero__buttons{ display:flex; gap:12px; flex-wrap:wrap; margin-top:16px; }
+
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .stat{
+      background: rgba(255,255,255,.70);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 14px 14px;
+      box-shadow: 0 10px 26px rgba(2,6,23,.08);
+      backdrop-filter: blur(8px);
+    }
+    .stat__num{ font-size:1.6rem; font-weight:1000; }
+    .stat__label{ color:var(--muted); font-weight:800; }
+
+    .hero__right{ display:flex; justify-content:flex-end; }
+    .heroCard{
+      width: min(420px, 100%);
+      background: rgba(255,255,255,.78);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      padding: 18px;
+      backdrop-filter: blur(10px);
+    }
+    .heroCard__badge{
+      display:inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(250,204,21,.22);
+      border: 1px solid rgba(250,204,21,.35);
+      font-weight:900;
+    }
+    .heroCard__img{
+      height: 220px;
+      border-radius: 18px;
+      margin-top: 14px;
+      background:
+        radial-gradient(500px 240px at 30% 20%, rgba(59,130,246,.35), transparent 60%),
+        radial-gradient(500px 260px at 70% 70%, rgba(250,204,21,.35), transparent 60%),
+        radial-gradient(520px 260px at 70% 30%, rgba(163,230,53,.22), transparent 60%),
+        linear-gradient(135deg, rgba(15,23,42,.08), rgba(15,23,42,.02));
+      border: 1px solid rgba(15,23,42,.10);
+    }
+    .heroCard__foot{ margin-top: 12px; display:flex; align-items:center; gap:10px; color:var(--muted); font-weight:800; }
+    .dot{ width:10px; height:10px; border-radius:999px; background: var(--blue); display:inline-block; }
+
+    /* sections */
+    .section{ padding: 34px 0; }
+    .section--tint{
+      background: rgba(59,130,246,.06);
+      border-top: 1px solid rgba(15,23,42,.05);
+      border-bottom: 1px solid rgba(15,23,42,.05);
+    }
+    .section__head h2{ margin:0; font-size: 2rem; font-weight:1000; letter-spacing:-.3px; }
+    .section__head p{ margin: 6px 0 0; color: var(--muted); font-weight:650; }
+
+    .grid{
+      display:grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .grid--2{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .grid--3{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .grid--4{ grid-template-columns: repeat(4, minmax(0,1fr)); }
+
+    .card{
+      background: rgba(255,255,255,.90);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 14px 30px rgba(2,6,23,.08);
+      backdrop-filter: blur(10px);
+    }
+    .card h3{ margin:0 0 10px; font-weight:1000; }
+    .card__top{ display:flex; justify-content:space-between; align-items:center; gap:12px; }
+    .tag{
+      font-weight:1000;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(34,197,94,.12);
+      border: 1px solid rgba(34,197,94,.22);
+    }
+    .meta{ margin: 12px 0 6px; color: rgba(11,18,32,.85); font-weight:800; }
+    .card--cta{ background: linear-gradient(135deg, rgba(250,204,21,.22), rgba(163,230,53,.16)); }
+    .list{ margin: 10px 0 0; padding-left: 18px; color: var(--muted); font-weight:650; }
+    .list li{ margin: 8px 0; }
+
+    .split{
+      display:grid;
+      grid-template-columns: 1.2fr .9fr;
+      gap: 18px;
+      align-items:start;
+    }
+    .big{ margin: 6px 0 12px; font-size:1.2rem; font-weight:650; color: var(--muted); }
+    .quote{
+      background: rgba(255,255,255,.90);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: 0 14px 30px rgba(2,6,23,.08);
+      backdrop-filter: blur(10px);
+    }
+    .quote__text{ margin:0 0 14px; font-size:1.05rem; font-weight:650; }
+    .quote__by{ display:flex; align-items:center; gap:12px; }
+    .avatar{
+      width:44px; height:44px;
+      border-radius: 999px;
+      display:grid; place-items:center;
+      font-weight:1000;
+      background: rgba(59,130,246,.12);
+      border: 2px solid rgba(59,130,246,.28);
+    }
+    .quote__name{ font-weight:1000; }
+
+    .steps{ display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; margin-top: 16px; }
+    .step{ display:flex; gap: 14px; align-items:flex-start; }
+    .step__num{
+      width:46px; height:46px; border-radius: 16px;
+      display:grid; place-items:center;
+      font-weight:1000;
+      background: linear-gradient(135deg, rgba(59,130,246,.16), rgba(139,92,246,.14));
+      border: 1px solid rgba(59,130,246,.20);
+      flex: 0 0 auto;
+    }
+    .alert{
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(250,204,21,.20);
+      border: 1px solid rgba(250,204,21,.35);
+      font-weight:850;
+    }
+
+    .chip{
+      display:inline-flex;
+      padding: 6px 10px;
+      border-radius:999px;
+      background: rgba(139,92,246,.12);
+      border: 1px solid rgba(139,92,246,.22);
+      font-weight:1000;
+      margin-bottom: 10px;
+    }
+    .voiceTop{ display:flex; align-items:center; gap:12px; margin-bottom: 10px; }
+    .voiceName{ font-weight:1000; }
+
+    .cta{
+      padding: 34px 0;
+      background: linear-gradient(135deg, rgba(250,204,21,.22), rgba(163,230,53,.14));
+      border-top: 1px solid rgba(15,23,42,.06);
+      border-bottom: 1px solid rgba(15,23,42,.06);
+    }
+    .cta__inner{ display:flex; align-items:center; justify-content:space-between; gap: 16px; flex-wrap:wrap; }
+    .cta__buttons{ display:flex; gap: 12px; flex-wrap:wrap; }
+
+    .footer{
+      background:#0b1220;
+      color: rgba(255,255,255,.88);
+      padding: 34px 0 24px;
+    }
+    .footer__grid{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 18px;
+    }
+    .footer h3, .footer h4{ margin:0 0 10px; font-weight:1000; }
+    .footer__links{ display:grid; gap: 8px; }
+    .footer__links a{ color: rgba(255,255,255,.82); text-decoration:none; font-weight:750; }
+    .footer__links a:hover{ text-decoration:underline; }
+
+    .newsletter{ display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
+    .newsletter input{
+      flex: 1 1 180px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.08);
+      color:#fff;
+      outline:none;
+    }
+    .newsletter input::placeholder{ color: rgba(255,255,255,.65); }
+
+    .footer__bottom{ margin-top: 22px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.12); display:flex; flex-direction:column; gap: 10px; }
+    .banner{
+      display:inline-flex;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(250,204,21,.18);
+      border: 1px solid rgba(250,204,21,.26);
+      width: fit-content;
+      font-weight: 1000;
+    }
+
+    /* Modal */
+    .modal{
+      position:fixed; inset:0; display:none; place-items:center;
+      background: rgba(2,6,23,.55);
+      z-index: 999;
+      padding: 20px;
+    }
+    .modal.is-open{ display:grid; }
+    .modal__panel{
+      width: min(720px, 100%);
+      background: rgba(255,255,255,.96);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      box-shadow: 0 30px 80px rgba(2,6,23,.30);
+      overflow:hidden;
+    }
+    .modal__head{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 16px 18px;
+      border-bottom: 1px solid rgba(15,23,42,.08);
+      font-weight: 1000;
+    }
+    .modal__body{ padding: 16px 18px; }
+    .cartList{ display:grid; gap:10px; margin: 0; padding: 0; list-style:none; }
+    .cartItem{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+      padding: 12px 14px;
+      border-radius: 18px;
+      background: rgba(15,23,42,.04);
+      border: 1px solid rgba(15,23,42,.08);
+      font-weight: 800;
+    }
+    .iconBtn{
+      width:40px; height:40px;
+      border-radius: 14px;
+      border: 1px solid rgba(15,23,42,.10);
+      background:#fff;
+      cursor:pointer;
+      font-weight:1000;
+    }
+    .iconBtn:hover{ background: rgba(15,23,42,.04); }
+
+    @media (max-width: 980px){
+      .hero__inner{ grid-template-columns: 1fr; }
+      .hero__right{ justify-content:flex-start; }
+      .grid--4{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .split{ grid-template-columns: 1fr; }
+      .steps{ grid-template-columns: 1fr; }
+      .footer__grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+    @media (max-width: 720px){
+      .nav{ display:none; }
+      .stats{ grid-template-columns: 1fr; }
+      .grid--3, .grid--2{ grid-template-columns: 1fr; }
+      .footer__grid{ grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 
-<body class="bg-gray-50 text-gray-900">
+<body>
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="#home">
+        <span class="brand__logo">+</span>
+        <span>Naloxone Advocates</span>
+      </a>
 
-<!-- HERO -->
-<section class="bg-gradient-to-r from-yellow-400 to-lime-400 text-white py-24 text-center">
-  <h1 class="text-5xl font-bold mb-6">Saving Lives Through Community Action</h1>
-  <p class="mb-6">Free naloxone training and kits for Plymouth and Devon</p>
-  <a href="training.html" class="bg-white text-gray-900 px-6 py-3 rounded-xl font-bold shadow">
-    Book Free Training
-  </a>
-</section>
+      <nav class="nav" aria-label="Primary">
+        <a class="nav__link is-active" href="#home">Home</a>
+        <a class="nav__link" href="#about">About Us</a>
+        <a class="nav__link" href="#training">Training &amp; P2P</a>
+        <a class="nav__link" href="#get">Get Naloxone</a>
+        <a class="nav__link" href="#volunteer">Volunteer</a>
+        <a class="nav__link" href="#resources">Resources</a>
+        <a class="nav__link" href="#contact">Contact</a>
+      </nav>
 
-<!-- STATS -->
-<section class="py-12 bg-white">
-  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 text-center">
-    <div class="p-6 shadow rounded-xl">
-      <h3 class="text-3xl font-bold text-indigo-600">500+</h3>
-      <p>People Trained</p>
+      <div style="display:flex; gap:10px; align-items:center;">
+        <button class="btn btn--dark" id="openCart">Cart (<span id="cartCount">0</span>)</button>
+        <a class="btn btn--primary" href="#contact">Get Naloxone Now</a>
+      </div>
     </div>
-    <div class="p-6 shadow rounded-xl">
-      <h3 class="text-3xl font-bold text-indigo-600">1,200+</h3>
-      <p>Kits Distributed</p>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="wrap hero__inner">
+      <div>
+        <div class="pill">Get Naloxone Now</div>
+        <h1 class="hero__title">Saving Lives<br>Through<br><span class="hero__grad">Community Action</span></h1>
+        <p class="hero__sub">Free naloxone training and kits for Plymouth and Devon communities</p>
+
+        <div class="hero__buttons">
+          <a class="btn btn--primary" href="#training">Book Free Training</a>
+          <a class="btn btn--soft" href="#contact">Request Naloxone Kit</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><div class="stat__num">500+</div><div class="stat__label">People Trained</div></div>
+          <div class="stat"><div class="stat__num">1,200+</div><div class="stat__label">Naloxone Kits Distributed</div></div>
+          <div class="stat"><div class="stat__num">150+</div><div class="stat__label">Lives Saved</div></div>
+        </div>
+      </div>
+
+      <div class="hero__right">
+        <div class="heroCard">
+          <div class="heroCard__badge">Community training session</div>
+          <div class="heroCard__img" aria-hidden="true"></div>
+          <div class="heroCard__foot"><span class="dot"></span> Book now — spaces are limited</div>
+          <div class="right"><a class="btn btn--dark" href="#training">Book Now</a></div>
+        </div>
+      </div>
     </div>
-    <div class="p-6 shadow rounded-xl">
-      <h3 class="text-3xl font-bold text-indigo-600">150+</h3>
-      <p>Lives Saved</p>
+  </section>
+
+  <section class="section section--tint" id="training">
+    <div class="wrap">
+      <div class="section__head">
+        <h2>Upcoming Training Sessions</h2>
+        <p>Choose a session that works for you and add it to your booking cart</p>
+      </div>
+
+      <div class="grid grid--3">
+        <div class="card">
+          <div class="card__top"><h3>Community Training</h3><span class="tag">Free</span></div>
+          <div class="meta">15 Feb 2025 • 10:00 AM</div>
+          <div class="muted small">Plymouth Community Centre</div>
+          <div class="right"><button class="btn btn--primary btn--block add" data-item="Community Training — 15 Feb 2025 — 10:00 AM — Plymouth Community Centre">Add to Cart</button></div>
+        </div>
+
+        <div class="card">
+          <div class="card__top"><h3>Peer-to-Peer (P2P)</h3><span class="tag">Free</span></div>
+          <div class="meta">22 Feb 2025 • 2:00 PM</div>
+          <div class="muted small">Devonport Guildhall</div>
+          <div class="right"><button class="btn btn--primary btn--block add" data-item="Peer-to-Peer (P2P) — 22 Feb 2025 — 2:00 PM — Devonport Guildhall">Add to Cart</button></div>
+        </div>
+
+        <div class="card">
+          <div class="card__top"><h3>Organisational Training</h3><span class="tag">Free</span></div>
+          <div class="meta">1 Mar 2025 • 9:00 AM</div>
+          <div class="muted small">Your Workplace</div>
+          <div class="right"><button class="btn btn--primary btn--block add" data-item="Organisational Training — 1 Mar 2025 — 9:00 AM — Your Workplace">Add to Cart</button></div>
+        </div>
+
+        <div class="card">
+          <div class="card__top"><h3>Community Training</h3><span class="tag">Free</span></div>
+          <div class="meta">8 Mar 2025 • 11:00 AM</div>
+          <div class="muted small">Stonehouse Community Hub</div>
+          <div class="right"><button class="btn btn--primary btn--block add" data-item="Community Training — 8 Mar 2025 — 11:00 AM — Stonehouse Community Hub">Add to Cart</button></div>
+        </div>
+
+        <div class="card">
+          <div class="card__top"><h3>Evening P2P Session</h3><span class="tag">Free</span></div>
+          <div class="meta">15 Mar 2025 • 6:00 PM</div>
+          <div class="muted small">Plymouth Central Library</div>
+          <div class="right"><button class="btn btn--primary btn--block add" data-item="Evening P2P Session — 15 Mar 2025 — 6:00 PM — Plymouth Central Library">Add to Cart</button></div>
+        </div>
+
+        <div class="card card--cta">
+          <h3>View All Training Options</h3>
+          <p class="muted">Want a different time or an organisational session?</p>
+          <div class="center"><a class="btn btn--dark btn--block" href="#contact">Request a session</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap split">
+      <div>
+        <div class="section__head">
+          <h2>Who We Are</h2>
+          <p class="big">A Grassroots Movement for Harm Reduction</p>
+        </div>
+
+        <p class="muted">
+          Naloxone Advocates Plymouth CIC is a community-led organisation dedicated to reducing drug-related deaths through education, training, and direct action.
+        </p>
+        <p class="muted">
+          We are a peer-led, lived-experience team who understand the challenges faced by people who use drugs. Our approach is rooted in compassion, dignity, and the belief that every life matters.
+        </p>
+        <p class="muted">
+          Through our Peer-to-Peer (P2P) project, we provide free naloxone training and kits across Plymouth and Devon, creating a safer community for everyone.
+        </p>
+
+        <div class="right"><a class="btn btn--soft" href="#contact">Read Our Story</a></div>
+      </div>
+
+      <aside class="quote">
+        <p class="quote__text">"This organisation saved my life. The training was non-judgemental, practical, and gave me the confidence to help others in my community."</p>
+        <div class="quote__by">
+          <div class="avatar">JM</div>
+          <div>
+            <div class="quote__name">Community Member</div>
+            <div class="muted small">Plymouth</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="wrap">
+      <div class="section__head">
+        <h2>Free Naloxone Training Programs</h2>
+      </div>
+
+      <div class="grid grid--3">
+        <div class="card">
+          <h3>Community Training</h3>
+          <ul class="list">
+            <li>Learn to recognise overdose signs</li>
+            <li>How to administer naloxone safely</li>
+            <li>Free naloxone kit provided</li>
+            <li>Certificate of completion</li>
+          </ul>
+          <div class="right"><a class="btn btn--dark btn--block" href="#training">Learn More</a></div>
+        </div>
+
+        <div class="card">
+          <h3>Peer-to-Peer (P2P)</h3>
+          <ul class="list">
+            <li>Lived-experience led training</li>
+            <li>Stigma-free, supportive environment</li>
+            <li>Ongoing peer support network</li>
+            <li>Community outreach opportunities</li>
+          </ul>
+          <div class="right"><a class="btn btn--dark btn--block" href="#training">Learn More</a></div>
+        </div>
+
+        <div class="card">
+          <h3>Organisational Training</h3>
+          <ul class="list">
+            <li>Tailored for workplaces &amp; services</li>
+            <li>Group sessions available</li>
+            <li>Policy guidance included</li>
+            <li>Flexible scheduling options</li>
+          </ul>
+          <div class="right"><a class="btn btn--dark btn--block" href="#contact">Learn More</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="get">
+    <div class="wrap">
+      <div class="section__head">
+        <h2>How to Get Naloxone</h2>
+      </div>
+
+      <div class="steps">
+        <div class="card step">
+          <div class="step__num">1</div>
+          <div>
+            <h3>Book Free Training</h3>
+            <p class="muted">Attend one of our free naloxone training sessions. Learn how to recognise an overdose and administer naloxone safely and confidently.</p>
+            <a class="link" href="#training">Book Training</a>
+          </div>
+        </div>
+
+        <div class="card step">
+          <div class="step__num">2</div>
+          <div>
+            <h3>Get Your Kit</h3>
+            <p class="muted">Receive your free naloxone kit at the end of training. You'll have everything you need to respond to an overdose emergency.</p>
+            <a class="link" href="#contact">Get Your Kit</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="alert">In an Emergency: Always call 999 first. Naloxone is a temporary measure — professional medical help is essential.</div>
+    </div>
+  </section>
+
+  <section class="section section--tint" id="volunteer">
+    <div class="wrap">
+      <div class="section__head">
+        <h2>Join Our Community</h2>
+        <p>Ways you can help</p>
+      </div>
+
+      <div class="grid grid--4">
+        <div class="card">
+          <h3>Peer Trainer</h3>
+          <p class="muted">Share your lived experience and help train others. Full training and ongoing support provided.</p>
+          <div class="right"><a class="btn btn--soft btn--block" href="#contact">Learn More</a></div>
+        </div>
+
+        <div class="card">
+          <h3>Outreach Volunteer</h3>
+          <p class="muted">Help us reach people who need naloxone. Distribute kits and information at events and on the streets.</p>
+          <div class="right"><a class="btn btn--soft btn--block" href="#contact">Learn More</a></div>
+        </div>
+
+        <div class="card">
+          <h3>Event Support</h3>
+          <p class="muted">Help at community events, awareness campaigns, and fundraising activities.</p>
+          <div class="right"><a class="btn btn--soft btn--block" href="#contact">Learn More</a></div>
+        </div>
+
+        <div class="card">
+          <h3>Behind the Scenes</h3>
+          <p class="muted">Support with admin, social media, design, or other skills. Work remotely or in-person based on your availability.</p>
+          <div class="right"><a class="btn btn--soft btn--block" href="#contact">Learn More</a></div>
+        </div>
+      </div>
+
+      <div class="center"><a class="btn btn--primary" href="#contact">Sign Up to Volunteer</a></div>
+    </div>
+  </section>
+
+  <section class="section" id="resources">
+    <div class="wrap">
+      <div class="section__head">
+        <h2>Free Resources</h2>
+        <p>Download Our Harm Reduction Resources</p>
+      </div>
+
+      <div class="grid grid--3">
+        <div class="card">
+          <h3>Overdose Response Guide</h3>
+          <p class="muted">Step-by-step instructions for responding to an opioid overdose</p>
+          <div class="right"><a class="btn btn--dark btn--block" href="#" onclick="alert('Add your PDF link here'); return false;">Download PDF</a></div>
+        </div>
+
+        <div class="card">
+          <h3>Naloxone Administration</h3>
+          <p class="muted">Visual guide to administering naloxone nasal spray</p>
+          <div class="right"><a class="btn btn--dark btn--block" href="#" onclick="alert('Add your PDF link here'); return false;">Download PDF</a></div>
+        </div>
+
+        <div class="card">
+          <h3>Harm Reduction Poster</h3>
+          <p class="muted">Community awareness poster for public spaces</p>
+          <div class="right"><a class="btn btn--dark btn--block" href="#" onclick="alert('Add your PDF link here'); return false;">Download PDF</a></div>
+        </div>
+      </div>
+
+      <div class="right"><a class="link" href="#contact">View All Resources</a></div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="wrap">
+      <div class="section__head">
+        <h2>Latest Updates</h2>
+        <p>News &amp; Announcements</p>
+      </div>
+
+      <div class="grid grid--2">
+        <div class="card">
+          <div class="card__top"><h3>Plymouth Council Partners with Naloxone Advocates for City-Wide Training</h3><span class="chip">Partnership</span></div>
+          <p class="muted small">28 Jan 2025</p>
+          <p class="muted">A new partnership will see naloxone training offered at all community centres across Plymouth.</p>
+          <div class="right"><a class="link" href="#contact">Read Full Story</a></div>
+        </div>
+
+        <div class="card">
+          <div class="card__top"><h3>150 Lives Saved: Celebrating Our Community Impact</h3><span class="chip">Milestone</span></div>
+          <p class="muted small">20 Jan 2025</p>
+          <p class="muted">We are proud to announce that naloxone distributed through our program has now been used to reverse over 150 overdoses.</p>
+          <div class="right"><a class="link" href="#contact">Read More</a></div>
+        </div>
+      </div>
+
+      <div class="right"><a class="link" href="#contact">View All News</a></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <h2>Community Voices</h2>
+      </div>
+
+      <div class="grid grid--2">
+        <div class="card">
+          <div class="voiceTop"><div class="avatar">SH</div><div><div class="voiceName">Sarah H.</div><div class="muted small">Peer Trainer</div></div></div>
+          <p class="muted">"Being part of this organisation has given me purpose. I've used naloxone twice now and saved two lives."</p>
+        </div>
+
+        <div class="card">
+          <div class="voiceTop"><div class="avatar">DM</div><div><div class="voiceName">David M.</div><div class="muted small">Community Member</div></div></div>
+          <p class="muted">"I was nervous about attending, but the team made me feel so welcome. No judgement, just practical information."</p>
+        </div>
+
+        <div class="card">
+          <div class="voiceTop"><div class="avatar">LT</div><div><div class="voiceName">Lisa T.</div><div class="muted small">Outreach Volunteer</div></div></div>
+          <p class="muted">"Volunteering with Naloxone Advocates has been incredibly rewarding. The peer-led approach means we're helping our own community."</p>
+        </div>
+
+        <div class="card">
+          <div class="voiceTop"><div class="avatar">RC</div><div><div class="voiceName">Robert C.</div><div class="muted small">Family Member</div></div></div>
+          <p class="muted">"This training gave me the tools and confidence to keep my son safe. I can't thank this team enough for what they do."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="wrap cta__inner">
+      <div>
+        <h2 style="margin:0; font-weight:1000; font-size:2rem;">Ready to Make a Difference?</h2>
+        <p class="muted" style="margin:.35rem 0 0; font-weight:650;">Join us in saving lives and building a safer, more compassionate community</p>
+      </div>
+      <div class="cta__buttons">
+        <a class="btn btn--primary" href="#training">Get Trained</a>
+        <a class="btn btn--dark" href="mailto:info@naloxoneadvocates.org">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__grid">
+        <div>
+          <h3>Naloxone Advocates</h3>
+          <p class="muted" style="color:rgba(255,255,255,.75); font-weight:650;">
+            A grassroots, peer-led harm reduction organisation dedicated to saving lives through naloxone training and community support.
+          </p>
+        </div>
+
+        <div>
+          <h4>Quick Links</h4>
+          <div class="footer__links">
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#training">Training &amp; P2P</a>
+            <a href="#volunteer">Volunteer</a>
+            <a href="#resources">Resources</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Get Help</h4>
+          <div class="footer__links">
+            <a href="#">Emergency: 999</a>
+            <a href="#">Phone: 01752 000 000</a>
+            <a href="mailto:info@naloxoneadvocates.org">Email: info@naloxoneadvocates.org</a>
+            <a href="#">Crisis Resources</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Stay Connected</h4>
+          <div class="muted" style="color:rgba(255,255,255,.75); font-weight:650;">
+            Get updates on training sessions and harm reduction news
+          </div>
+          <form class="newsletter" onsubmit="event.preventDefault(); alert('Subscribed (hook up later).');">
+            <input required type="email" placeholder="Your email" />
+            <button class="btn btn--primary" type="submit">Sign Up</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <div class="banner">NALOXONE SAVES LIVES</div>
+        <div class="small" style="color:rgba(255,255,255,.70); font-weight:650;">
+          © 2025 Naloxone Advocates Plymouth CIC. All rights reserved. | Privacy Policy | Terms of Service
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Modal -->
+  <div class="modal" id="cartModal" aria-hidden="true">
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-label="Booking cart">
+      <div class="modal__head">
+        <div>Booking Cart</div>
+        <button class="iconBtn" id="closeCart" aria-label="Close">✕</button>
+      </div>
+      <div class="modal__body">
+        <div class="muted" id="cartEmpty">Your cart is empty. Add a session to book.</div>
+        <ul class="cartList" id="cartList"></ul>
+
+        <div class="right" style="gap:10px;">
+          <button class="btn btn--soft" id="clearCart">Clear</button>
+          <button class="btn btn--dark" id="emailCart">Email my booking request</button>
+        </div>
+
+        <p class="small muted" style="margin-top:10px;">
+          This opens your email app with your selected sessions (you can replace with a real booking form later).
+        </p>
+      </div>
     </div>
   </div>
-</section>
 
-<!-- TRAINING -->
-<section class="py-16 bg-gray-100 text-center">
-  <h2 class="text-3xl font-bold mb-8">Upcoming Training</h2>
+  <script>
+    const cart = [];
+    const cartCount = document.getElementById('cartCount');
+    const cartModal = document.getElementById('cartModal');
+    const cartList = document.getElementById('cartList');
+    const cartEmpty = document.getElementById('cartEmpty');
 
-  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+    function updateCount(){ cartCount.textContent = cart.length; }
 
-    <div class="bg-white p-6 rounded-xl shadow">
-      <h3 class="font-bold mb-2">Community Training</h3>
-      <p>15 Feb – Plymouth Community Centre</p>
-    </div>
+    function renderCart(){
+      cartList.innerHTML = '';
+      cartEmpty.style.display = cart.length ? 'none' : 'block';
 
-    <div class="bg-white p-6 rounded-xl shadow">
-      <h3 class="font-bold mb-2">Peer to Peer</h3>
-      <p>22 Feb – Devonport Guildhall</p>
-    </div>
+      cart.forEach((item, idx) => {
+        const li = document.createElement('li');
+        li.className = 'cartItem';
+        li.innerHTML = \`
+          <div>\${item}</div>
+          <button class="iconBtn" aria-label="Remove">✕</button>
+        \`;
+        li.querySelector('button').addEventListener('click', () => {
+          cart.splice(idx, 1);
+          updateCount();
+          renderCart();
+        });
+        cartList.appendChild(li);
+      });
+    }
 
-    <div class="bg-white p-6 rounded-xl shadow">
-      <h3 class="font-bold mb-2">Evening Session</h3>
-      <p>15 Mar – Central Library</p>
-    </div>
+    function openCart(){ cartModal.classList.add('is-open'); cartModal.setAttribute('aria-hidden','false'); renderCart(); }
+    function closeCart(){ cartModal.classList.remove('is-open'); cartModal.setAttribute('aria-hidden','true'); }
 
-  </div>
-</section>
+    document.getElementById('openCart').addEventListener('click', openCart);
+    document.getElementById('closeCart').addEventListener('click', closeCart);
+    cartModal.addEventListener('click', (e) => { if (e.target === cartModal) closeCart(); });
 
-<!-- TESTIMONIAL -->
-<section class="py-16 bg-white text-center">
-  <h2 class="text-3xl font-bold mb-6">Community Voices</h2>
-  <p class="max-w-2xl mx-auto text-gray-600">
-    "The training was clear, compassionate, and empowering."
-  </p>
-</section>
+    document.querySelectorAll('.add').forEach(btn => {
+      btn.addEventListener('click', () => {
+        cart.push(btn.dataset.item);
+        updateCount();
+        btn.style.opacity = '0.85';
+        setTimeout(() => btn.style.opacity = '1', 140);
+      });
+    });
 
-<!-- CTA -->
-<section class="bg-indigo-600 text-white py-16 text-center">
-  <h2 class="text-3xl font-bold mb-4">Join Our Community</h2>
-  <a href="training.html" class="bg-white text-indigo-600 px-6 py-3 rounded-xl font-bold shadow">
-    Get Trained
-  </a>
-</section>
+    document.getElementById('clearCart').addEventListener('click', () => {
+      cart.splice(0, cart.length);
+      updateCount();
+      renderCart();
+    });
 
+    document.getElementById('emailCart').addEventListener('click', () => {
+      if(!cart.length){ alert('Your cart is empty.'); return; }
+      const subject = encodeURIComponent('Training booking request');
+      const body = encodeURIComponent(
+        "Hi Naloxone Advocates Plymouth,\\n\\nI'd like to book the following training session(s):\\n\\n" +
+        cart.map((x,i)=>`${i+1}. ${x}`).join("\\n") +
+        "\\n\\nMy name:\\nMy phone:\\nAny access needs:\\n\\nThanks!"
+      );
+      window.location.href = `mailto:info@naloxoneadvocates.org?subject=${subject}&body=${body}`;
+    });
+
+    updateCount();
+  </script>
 </body>
 </html>
+
