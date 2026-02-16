@@ -3,71 +3,154 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
- <link rel="stylesheet" href="styles-readdy.css">
- <script defer src="script.js"></script>
-  <title>Contact | Naloxone Advocates Plymouth CIC</title>
+  <title>Contact | Naloxone Advocates Plymouth</title>
   <meta name="description" content="Contact Naloxone Advocates Plymouth CIC." />
+  <link rel="stylesheet" href="styles.css?v=5" />
 </head>
+
 <body>
-<nav class="site-nav" aria-label="Primary">
-  <div class="nav-inner">
-    <a class="brand" href="index.html">Naloxone Advocates Plymouth</a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
-    <div id="nav-links" class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="training.html">Training</a>
-      <a href="resources.html">Resources</a>
-      <a href="volunteer.html">Volunteer</a>
-      <a href="contact.html">Contact</a>
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__logo" aria-hidden="true">✚</span>
+        <span class="brand__name">Naloxone Advocates</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav__link" href="index.html">Home</a>
+        <a class="nav__link" href="about.html">About Us</a>
+        <a class="nav__link" href="training.html">Training &amp; P2P</a>
+        <a class="nav__link" href="resources.html">Resources</a>
+        <a class="nav__link" href="volunteer.html">Volunteer</a>
+        <a class="nav__link is-active" href="contact.html">Contact</a>
+      </nav>
+
+      <a class="btn btn--dark" href="contact.html">Get Naloxone Now</a>
     </div>
-  </div>
-</nav>
-<main class="container">
-<header class="page-header">
-  <h1>Contact</h1>
-  <p class="lead">Questions? Want training for your group? Interested in volunteering? Get in touch.</p>
-</header>
+  </header>
 
-<section class="grid">
-  <article class="card">
-    <h2>Email</h2>
-    <p><a href="mailto:napplymouth66@gmail.com">napplymouth66@gmail.com</a></p>
-    <p class="smallprint">We aim to reply within a few days.</p>
-  </article>
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <div class="hero__left">
+        <span class="pill">Contact</span>
+        <h1 class="hero__title">Get in touch</h1>
+        <p class="hero__sub">Questions? Want training for your group? Need naloxone support? Drop us a message.</p>
 
-  <article class="card">
-    <h2>Send a message</h2>
-    <form id="contact-form" class="form" novalidate>
-      <label>
-        <span>Name</span>
-        <input name="name" type="text" autocomplete="name" required />
-      </label>
-      <label>
-        <span>Email</span>
-        <input name="email" type="email" autocomplete="email" required />
-      </label>
-      <label>
-        <span>Message</span>
-        <textarea name="message" rows="5" required></textarea>
-      </label>
-      <button class="btn" type="submit">Send</button>
-      <p class="smallprint" id="form-status" role="status" aria-live="polite"></p>
-      <p class="smallprint">This form opens your email app (no data is stored on this website).</p>
-    </form>
-  </article>
-</section>
-</main>
-<footer class="site-footer">
-  <div class="footer-inner container">
-    <p>© <span id="year"></span> Naloxone Advocates Plymouth CIC</p>
-    <p class="footer-meta">
-      <strong>Emergency:</strong> 999
-      <span aria-hidden="true"> • </span>
-      <strong>Email:</strong> <a href="mailto:napplymouth66@gmail.com">napplymouth66@gmail.com</a>
-    </p>
-    <p class="smallprint">If you think someone is overdosing or unresponsive, call <strong>999</strong> immediately.</p>
-  </div>
-</footer>
+        <div class="hero__buttons">
+          <a class="btn btn--primary" href="mailto:info@naloxoneadvocates.org">Email us</a>
+          <a class="btn btn--soft" href="training.html">Training</a>
+        </div>
+
+        <div class="alert" style="margin-top:16px;">
+          <strong>Emergency:</strong> call <strong>999</strong> first. Naloxone is a temporary measure — professional medical help is essential.
+        </div>
+      </div>
+
+      <div class="hero__right" aria-hidden="true">
+        <div class="heroCard">
+          <div class="heroCard__badge">We’re here to help</div>
+          <div class="heroCard__img"></div>
+          <div class="heroCard__foot">
+            <span class="dot"></span>
+            <span>Training • Kits • Volunteering</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="wrap">
+      <div class="grid grid--2">
+        <article class="card">
+          <h3>Email</h3>
+          <p class="muted"><a class="link" href="mailto:info@naloxoneadvocates.org">info@naloxoneadvocates.org</a></p>
+          <p class="muted">We aim to reply within a few days.</p>
+
+          <h3 style="margin-top:16px;">Phone</h3>
+          <p class="muted">01752 000 000</p>
+        </article>
+
+        <article class="card">
+          <h3>Send a message</h3>
+          <p class="muted">This form opens your email app (no data is stored on the website).</p>
+
+          <form onsubmit="event.preventDefault(); sendMail();" style="margin-top:10px;">
+            <div style="display:grid; gap:10px;">
+              <input id="c_name" type="text" placeholder="Your name" required style="padding:12px 14px;border-radius:999px;border:1px solid rgba(15,23,42,.14);" />
+              <input id="c_email" type="email" placeholder="Your email" required style="padding:12px 14px;border-radius:999px;border:1px solid rgba(15,23,42,.14);" />
+              <textarea id="c_msg" rows="5" placeholder="Your message" required style="padding:12px 14px;border-radius:18px;border:1px solid rgba(15,23,42,.14);"></textarea>
+              <button class="btn btn--primary btn--block" type="submit">Send</button>
+              <div id="c_status" class="muted small" aria-live="polite"></div>
+            </div>
+          </form>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div>
+        <h3>Naloxone Advocates</h3>
+        <p class="muted">A grassroots, peer-led harm reduction organisation dedicated to saving lives through naloxone training and community support.</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <div class="footer__links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="training.html">Training &amp; P2P</a>
+          <a href="volunteer.html">Volunteer</a>
+          <a href="resources.html">Resources</a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Get Help</h4>
+        <p class="muted"><strong>Emergency:</strong> 999</p>
+        <p class="muted">Phone: 01752 000 000</p>
+        <p class="muted">Email: info@naloxoneadvocates.org</p>
+      </div>
+
+      <div>
+        <h4>Stay Connected</h4>
+        <p class="muted">Get updates on training sessions and harm reduction news</p>
+        <form class="newsletter" onsubmit="event.preventDefault(); alert('Thanks! (This demo form does not submit anywhere yet.)');">
+          <input type="email" placeholder="Your email" required />
+          <button class="btn btn--primary" type="submit">Sign Up</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="wrap footer__bottom">
+      <div class="banner">NALOXONE SAVES LIVES</div>
+      <div class="muted small">
+        © 2025 Naloxone Advocates Plymouth CIC. All rights reserved. · <a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function sendMail(){
+      const name = document.getElementById('c_name').value.trim();
+      const email = document.getElementById('c_email').value.trim();
+      const msg = document.getElementById('c_msg').value.trim();
+      const status = document.getElementById('c_status');
+
+      if(!name || !email || !msg){
+        status.textContent = "Please fill in all fields.";
+        return;
+      }
+
+      const subject = encodeURIComponent("Website message from " + name);
+      const body = encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\n" + msg);
+
+      window.location.href = "mailto:info@naloxoneadvocates.org?subject=" + subject + "&body=" + body;
+      status.textContent = "Opening your email app…";
+    }
+  </script>
 </body>
 </html>
+
