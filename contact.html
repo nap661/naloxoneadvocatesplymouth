@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <title>Contact | Naloxone Advocates Plymouth CIC</title>
+  <meta name="description" content="Contact Naloxone Advocates Plymouth CIC." />
+</head>
+<body>
+<nav class="site-nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">Naloxone Advocates Plymouth</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <div id="nav-links" class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="training.html">Training</a>
+      <a href="resources.html">Resources</a>
+      <a href="volunteer.html">Volunteer</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+<main class="container">
+<header class="page-header">
+  <h1>Contact</h1>
+  <p class="lead">Questions? Want training for your group? Interested in volunteering? Get in touch.</p>
+</header>
+
+<section class="grid">
+  <article class="card">
+    <h2>Email</h2>
+    <p><a href="mailto:napplymouth66@gmail.com">napplymouth66@gmail.com</a></p>
+    <p class="smallprint">We aim to reply within a few days.</p>
+  </article>
+
+  <article class="card">
+    <h2>Send a message</h2>
+    <form id="contact-form" class="form" novalidate>
+      <label>
+        <span>Name</span>
+        <input name="name" type="text" autocomplete="name" required />
+      </label>
+      <label>
+        <span>Email</span>
+        <input name="email" type="email" autocomplete="email" required />
+      </label>
+      <label>
+        <span>Message</span>
+        <textarea name="message" rows="5" required></textarea>
+      </label>
+      <button class="btn" type="submit">Send</button>
+      <p class="smallprint" id="form-status" role="status" aria-live="polite"></p>
+      <p class="smallprint">This form opens your email app (no data is stored on this website).</p>
+    </form>
+  </article>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner container">
+    <p>© <span id="year"></span> Naloxone Advocates Plymouth CIC</p>
+    <p class="footer-meta">
+      <strong>Emergency:</strong> 999
+      <span aria-hidden="true"> • </span>
+      <strong>Email:</strong> <a href="mailto:napplymouth66@gmail.com">napplymouth66@gmail.com</a>
+    </p>
+    <p class="smallprint">If you think someone is overdosing or unresponsive, call <strong>999</strong> immediately.</p>
+  </div>
+</footer>
+</body>
+</html>
