@@ -551,5 +551,10 @@ a{ color:inherit; text-decoration:none; }
   .statDivider{ display:none; }
   .footer__grid{ grid-template-columns: 1fr; }
 }
+/* Mobile quick menu */
+@media (max-width: 720px){
+  .nav{ display:flex; overflow:auto; white-space:nowrap; gap:8px; }
+  .nav__link{ flex: 0 0 auto; background: rgba(255,255,255,.35); }
+}
 
 
