@@ -1,348 +1,157 @@
-:root{
-  --bg:#f7f8fb;
-  --text:#0b1220;
-  --muted:#556070;
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us | Naloxone Advocates Plymouth</title>
+  <meta name="description" content="About Naloxone Advocates Plymouth CIC." />
+  <link rel="stylesheet" href="styles.css?v=5" />
+</head>
 
-  --card:#ffffff;
-  --border: rgba(15,23,42,0.12);
-  --shadow: 0 18px 40px rgba(2,6,23,0.10);
+<body>
+  <!-- NAV -->
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__logo" aria-hidden="true">✚</span>
+        <span class="brand__name">Naloxone Advocates</span>
+      </a>
 
-  --amber:#facc15;
-  --amber2:#f59e0b;
-  --blue:#3b82f6;
-  --purple:#8b5cf6;
+      <nav class="nav" aria-label="Primary">
+        <a class="nav__link" href="index.html">Home</a>
+        <a class="nav__link is-active" href="about.html">About Us</a>
+        <a class="nav__link" href="training.html">Training &amp; P2P</a>
+        <a class="nav__link" href="resources.html">Resources</a>
+        <a class="nav__link" href="volunteer.html">Volunteer</a>
+        <a class="nav__link" href="contact.html">Contact</a>
+      </nav>
 
-  --radius:24px;
-  --max:1200px;
+      <a class="btn btn--dark" href="contact.html">Get Naloxone Now</a>
+    </div>
+  </header>
 
-  --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-}
+  <!-- HERO (simple) -->
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <div class="hero__left">
+        <span class="pill">About Us</span>
+        <h1 class="hero__title">Who We Are</h1>
+        <p class="hero__sub">
+          Naloxone Advocates Plymouth CIC is a community-led organisation dedicated to reducing drug-related deaths through education, training, and direct action.
+        </p>
+      </div>
 
-*{ box-sizing:border-box; }
-html,body{ height:100%; }
-body{
-  margin:0;
-  font-family:var(--font);
-  color:var(--text);
-  background:
-    radial-gradient(900px 650px at 20% -10%, rgba(59,130,246,.16), transparent 60%),
-    radial-gradient(950px 700px at 80% 0%, rgba(250,204,21,.18), transparent 55%),
-    var(--bg);
-  line-height:1.55;
-}
+      <div class="hero__right" aria-hidden="true">
+        <div class="heroCard">
+          <div class="heroCard__badge">Peer-led • Lived experience</div>
+          <div class="heroCard__img"></div>
+          <div class="heroCard__foot">
+            <span class="dot"></span>
+            <span>Compassion • Dignity • Every life matters</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-.wrap{ max-width:var(--max); margin:0 auto; padding:0 20px; }
-a{ color:inherit; }
-.muted{ color:var(--muted); }
-.small{ font-size:.92rem; }
-.right{ display:flex; justify-content:flex-end; margin-top:14px; }
-.center{ display:flex; justify-content:center; margin-top:18px; }
-.link{ color:#1d4ed8; text-decoration:none; font-weight:700; }
-.link:hover{ text-decoration:underline; }
+  <!-- CONTENT -->
+  <section class="section">
+    <div class="wrap">
+      <div class="grid grid--2">
+        <article class="card">
+          <h3>What we do</h3>
+          <ul class="list">
+            <li>Free naloxone training and awareness sessions</li>
+            <li>Peer-to-peer support and community outreach</li>
+            <li>Sharing practical harm reduction information</li>
+          </ul>
+        </article>
 
-/* topbar */
-.topbar{
-  position:sticky; top:0; z-index:50;
-  background: linear-gradient(90deg, var(--amber), var(--amber2));
-  box-shadow: 0 10px 24px rgba(2,6,23,.14);
-}
-.topbar__inner{
-  display:flex; align-items:center; justify-content:space-between;
-  gap:16px; padding:14px 0;
-}
-.brand{
-  display:flex; align-items:center; gap:10px;
-  text-decoration:none; font-weight:900; letter-spacing:.2px;
-}
-.brand__logo{
-  width:38px; height:38px; display:grid; place-items:center;
-  border-radius:999px;
-  background: rgba(255,255,255,.85);
-  box-shadow: 0 10px 24px rgba(2,6,23,.12);
-}
-.brand__name{ white-space:nowrap; }
+        <article class="card">
+          <h3>Our approach</h3>
+          <p class="muted">
+            We’re non-judgemental, trauma-informed and focused on safety. We work alongside local services and the community to make overdose response knowledge widely available.
+          </p>
+          <p class="muted">
+            If you’re a service, workplace, community group, or an individual who wants training or naloxone support, we’ll help you figure out the best option.
+          </p>
+          <a class="btn btn--primary" href="contact.html">Talk to us</a>
+        </article>
+      </div>
+    </div>
+  </section>
 
-.nav{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
-.nav__link{
-  text-decoration:none;
-  padding:10px 12px;
-  border-radius:14px;
-  font-weight:750;
-  color: rgba(11,18,32,.85);
-}
-.nav__link:hover{ background: rgba(255,255,255,.25); }
-.nav__link.is-active{ background: rgba(255,255,255,.35); }
+  <!-- QUOTE -->
+  <section class="section section--tint">
+    <div class="wrap split">
+      <div>
+        <h2>Why we exist</h2>
+        <p class="muted">
+          Overdose is preventable. Naloxone saves lives, and training builds confidence. Our work is about making life-saving skills and tools accessible across Plymouth & Devon.
+        </p>
+        <div class="alert">
+          <strong>Emergency:</strong> always call <strong>999</strong> first. Naloxone is a temporary measure — professional medical help is essential.
+        </div>
+      </div>
 
-/* buttons */
-.btn{
-  display:inline-flex; align-items:center; justify-content:center; gap:10px;
-  padding: 12px 16px;
-  border-radius: 999px;
-  text-decoration:none;
-  font-weight:800;
-  border: 1px solid rgba(15,23,42,.14);
-  cursor:pointer;
-  transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
-}
-.btn:hover{ transform: translateY(-1px); box-shadow: 0 12px 24px rgba(2,6,23,.12); }
-.btn--block{ width:100%; }
+      <aside class="quote">
+        <p class="quote__text">
+          “The training was clear, compassionate, and empowering — it helped me keep my friends safe.”
+        </p>
+        <div class="quote__by">
+          <span class="avatar">NA</span>
+          <div>
+            <div class="quote__name">Community Member</div>
+            <div class="muted">Plymouth</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
 
-.btn--primary{
-  background: linear-gradient(90deg, var(--amber), var(--amber2));
-}
-.btn--dark{
-  background:#0b1220;
-  color:#fff;
-  border-color: rgba(255,255,255,.12);
-}
-.btn--soft{
-  background: rgba(59,130,246,.10);
-  border-color: rgba(59,130,246,.22);
-}
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div>
+        <h3>Naloxone Advocates</h3>
+        <p class="muted">A grassroots, peer-led harm reduction organisation dedicated to saving lives through naloxone training and community support.</p>
+      </div>
 
-/* hero */
-.hero{ padding: 34px 0 10px; }
-.hero__inner{
-  display:grid;
-  grid-template-columns: 1.25fr .9fr;
-  gap: 26px;
-  align-items:center;
-}
-.pill{
-  display:inline-flex;
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: rgba(59,130,246,.12);
-  border: 1px solid rgba(59,130,246,.22);
-  font-weight:800;
-}
-.hero__title{
-  margin: 14px 0 10px;
-  font-size: clamp(38px, 4.6vw, 66px);
-  line-height:1.02;
-  letter-spacing:-.8px;
-}
-.hero__grad{
-  background: linear-gradient(90deg, var(--blue), var(--purple));
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-}
-.hero__sub{ margin:0; max-width: 60ch; font-size:1.05rem; }
-.hero__buttons{ display:flex; gap:12px; flex-wrap:wrap; margin-top:16px; }
+      <div>
+        <h4>Quick Links</h4>
+        <div class="footer__links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="training.html">Training &amp; P2P</a>
+          <a href="volunteer.html">Volunteer</a>
+          <a href="resources.html">Resources</a>
+        </div>
+      </div>
 
-.stats{
-  display:grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap: 12px;
-  margin-top: 18px;
-}
-.stat{
-  background: rgba(255,255,255,.65);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 14px 14px;
-  box-shadow: 0 10px 26px rgba(2,6,23,.08);
-}
-.stat__num{ font-size:1.55rem; font-weight:900; }
-.stat__label{ color:var(--muted); font-weight:700; }
+      <div>
+        <h4>Get Help</h4>
+        <p class="muted"><strong>Emergency:</strong> 999</p>
+        <p class="muted">Phone: 01752 000 000</p>
+        <p class="muted">Email: info@naloxoneadvocates.org</p>
+      </div>
 
-.hero__right{ display:flex; justify-content:flex-end; }
-.heroCard{
-  width: min(420px, 100%);
-  background: rgba(255,255,255,.72);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  overflow:hidden;
-  padding: 18px;
-}
-.heroCard__badge{
-  display:inline-flex;
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: rgba(250,204,21,.22);
-  border: 1px solid rgba(250,204,21,.35);
-  font-weight:800;
-}
-.heroCard__img{
-  height: 220px;
-  border-radius: 18px;
-  margin-top: 14px;
-  background:
-    radial-gradient(500px 240px at 30% 20%, rgba(59,130,246,.35), transparent 60%),
-    radial-gradient(500px 260px at 70% 70%, rgba(250,204,21,.35), transparent 60%),
-    linear-gradient(135deg, rgba(15,23,42,.08), rgba(15,23,42,.02));
-  border: 1px solid rgba(15,23,42,.10);
-}
-.heroCard__foot{ margin-top: 12px; display:flex; align-items:center; gap:10px; color:var(--muted); font-weight:700; }
-.dot{ width:10px; height:10px; border-radius:999px; background: var(--blue); display:inline-block; }
+      <div>
+        <h4>Stay Connected</h4>
+        <p class="muted">Get updates on training sessions and harm reduction news</p>
+        <form class="newsletter" onsubmit="event.preventDefault(); alert('Thanks! (This demo form does not submit anywhere yet.)');">
+          <input type="email" placeholder="Your email" required />
+          <button class="btn btn--primary" type="submit">Sign Up</button>
+        </form>
+      </div>
+    </div>
 
-/* sections */
-.section{ padding: 34px 0; }
-.section--tint{
-  background: rgba(59,130,246,.06);
-  border-top: 1px solid rgba(15,23,42,.05);
-  border-bottom: 1px solid rgba(15,23,42,.05);
-}
-.section__head h2{ margin:0; font-size: 2rem; }
-.section__head p{ margin: 6px 0 0; color: var(--muted); }
+    <div class="wrap footer__bottom">
+      <div class="banner">NALOXONE SAVES LIVES</div>
+      <div class="muted small">
+        © 2025 Naloxone Advocates Plymouth CIC. All rights reserved. · <a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
 
-.grid{
-  display:grid;
-  gap: 14px;
-  margin-top: 18px;
-}
-.grid--2{ grid-template-columns: repeat(2, minmax(0,1fr)); }
-.grid--3{ grid-template-columns: repeat(3, minmax(0,1fr)); }
-.grid--4{ grid-template-columns: repeat(4, minmax(0,1fr)); }
-
-.card{
-  background: rgba(255,255,255,.85);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 18px;
-  box-shadow: 0 14px 30px rgba(2,6,23,.08);
-}
-.card h3{ margin:0 0 10px; }
-.card__top{ display:flex; justify-content:space-between; align-items:center; gap:12px; }
-.tag{
-  font-weight:900;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(34,197,94,.12);
-  border: 1px solid rgba(34,197,94,.22);
-}
-.meta{ margin: 12px 0 6px; color: rgba(11,18,32,.80); font-weight:700; }
-
-.card--cta{
-  background: linear-gradient(135deg, rgba(250,204,21,.20), rgba(59,130,246,.14));
-}
-
-.list{ margin: 10px 0 0; padding-left: 18px; color: var(--muted); }
-.list li{ margin: 8px 0; }
-
-/* split / quote */
-.split{
-  display:grid;
-  grid-template-columns: 1.2fr .9fr;
-  gap: 18px;
-  align-items:start;
-}
-.big{ margin: 6px 0 12px; font-size:1.2rem; }
-.quote{
-  background: rgba(255,255,255,.85);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px;
-  box-shadow: 0 14px 30px rgba(2,6,23,.08);
-}
-.quote__text{ margin:0 0 14px; font-size:1.05rem; }
-.quote__by{ display:flex; align-items:center; gap:12px; }
-.avatar{
-  width:44px; height:44px;
-  border-radius: 999px;
-  display:grid; place-items:center;
-  font-weight:900;
-  background: rgba(59,130,246,.12);
-  border: 2px solid rgba(59,130,246,.28);
-}
-.quote__name{ font-weight:900; }
-
-/* steps + alert */
-.steps{ display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; margin-top: 16px; }
-.step{ display:flex; gap: 14px; align-items:flex-start; }
-.step__num{
-  width:46px; height:46px; border-radius: 16px;
-  display:grid; place-items:center;
-  font-weight:900;
-  background: linear-gradient(135deg, rgba(59,130,246,.16), rgba(139,92,246,.14));
-  border: 1px solid rgba(59,130,246,.20);
-}
-.alert{
-  margin-top: 16px;
-  padding: 14px 16px;
-  border-radius: 18px;
-  background: rgba(250,204,21,.20);
-  border: 1px solid rgba(250,204,21,.35);
-  font-weight:700;
-}
-
-/* chips + voice */
-.chip{
-  display:inline-flex;
-  padding: 6px 10px;
-  border-radius:999px;
-  background: rgba(139,92,246,.12);
-  border: 1px solid rgba(139,92,246,.22);
-  font-weight:900;
-  margin-bottom: 10px;
-}
-.voiceTop{ display:flex; align-items:center; gap:12px; margin-bottom: 10px; }
-.voiceName{ font-weight:900; }
-
-/* CTA */
-.cta{
-  padding: 34px 0;
-  background: linear-gradient(135deg, rgba(250,204,21,.22), rgba(59,130,246,.16));
-  border-top: 1px solid rgba(15,23,42,.06);
-  border-bottom: 1px solid rgba(15,23,42,.06);
-}
-.cta__inner{ display:flex; align-items:center; justify-content:space-between; gap: 16px; flex-wrap:wrap; }
-.cta__buttons{ display:flex; gap: 12px; flex-wrap:wrap; }
-
-/* footer */
-.footer{
-  background:#0b1220;
-  color: rgba(255,255,255,.86);
-  padding: 34px 0 24px;
-}
-.footer__grid{
-  display:grid;
-  grid-template-columns: repeat(4, minmax(0,1fr));
-  gap: 18px;
-}
-.footer h3, .footer h4{ margin:0 0 10px; }
-.footer__links{ display:grid; gap: 8px; }
-.footer__links a{ color: rgba(255,255,255,.82); text-decoration:none; font-weight:700; }
-.footer__links a:hover{ text-decoration:underline; }
-
-.newsletter{ display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
-.newsletter input{
-  flex: 1 1 180px;
-  padding: 12px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.18);
-  background: rgba(255,255,255,.08);
-  color:#fff;
-  outline:none;
-}
-.newsletter input::placeholder{ color: rgba(255,255,255,.65); }
-
-.footer__bottom{ margin-top: 22px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.12); display:flex; flex-direction:column; gap: 10px; }
-.banner{
-  display:inline-flex;
-  padding: 10px 14px;
-  border-radius: 999px;
-  background: rgba(250,204,21,.18);
-  border: 1px solid rgba(250,204,21,.26);
-  width: fit-content;
-  font-weight: 1000;
-}
-.footer__bottom a{ color: rgba(255,255,255,.86); }
-
-/* responsive */
-@media (max-width: 980px){
-  .hero__inner{ grid-template-columns: 1fr; }
-  .hero__right{ justify-content:flex-start; }
-  .grid--4{ grid-template-columns: repeat(2, minmax(0,1fr)); }
-  .split{ grid-template-columns: 1fr; }
-  .steps{ grid-template-columns: 1fr; }
-  .footer__grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
-}
-@media (max-width: 620px){
-  .nav{ display:none; } /* simple hide on small screens */
-  .stats{ grid-template-columns: 1fr; }
-  .grid--3, .grid--2{ grid-template-columns: 1fr; }
-  .footer__grid{ grid-template-columns: 1fr; }
-}
