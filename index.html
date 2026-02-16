@@ -3,21 +3,25 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Plymouth Naloxone Training & Harm Reduction | Naloxone Advocates Plymouth CIC</title>
-  <meta name="description" content="Free naloxone training and overdose prevention in Plymouth and Devon. Peer-led harm reduction organisation providing life-saving naloxone kits and community support." />
-  <link rel="canonical" href="https://naloxoneadvocatesplymouth.pages.dev/" />
-
-  <!-- Load your stylesheet -->
-  <link rel="stylesheet" href="/styles.css" />
+  <title>Naloxone Advocates Plymouth CIC</title>
+  <meta name="description" content="Free naloxone training and kits for Plymouth and Devon communities. Peer-led, stigma-free harm reduction support." />
+  <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
-  <!-- Top Bar -->
+
+  <!-- TOPBAR -->
   <header class="topbar">
     <div class="wrap topbar__inner">
       <a class="brand" href="#home" aria-label="Naloxone Advocates Home">
-        <span class="brand__logo">+</span>
-        <span>Naloxone Advocates</span>
+        <span class="brand__mark" aria-hidden="true">
+          <span class="brand__dot"></span>
+          <span class="brand__heart">♥</span>
+        </span>
+        <span class="brand__text">
+          <span class="brand__name">Naloxone</span>
+          <span class="brand__sub">Advocates</span>
+        </span>
       </a>
 
       <nav class="nav" aria-label="Primary">
@@ -30,150 +34,188 @@
         <a class="nav__link" href="#contact">Contact</a>
       </nav>
 
-      <div style="display:flex; gap:10px; align-items:center;">
-        <button class="btn btn--dark" id="openCart" type="button">Cart (<span id="cartCount">0</span>)</button>
-        <a class="btn btn--primary" href="#contact">Get Naloxone Now</a>
+      <div class="topbar__cta">
+        <button class="btn btn--white" id="openCart" type="button">
+          <span class="btn__icon">🛒</span>
+          Cart <span class="pillCount" id="cartCount">0</span>
+        </button>
+        <a class="btn btn--blue" href="#contact">Get Naloxone Now</a>
       </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero" id="home">
-    <div class="wrap hero__inner">
-      <div>
-        <div class="pill">Get Naloxone Now</div>
-        <h1 class="hero__title">
-          Saving Lives<br />
-          Through<br />
-          <span class="hero__grad">Community Action</span>
-        </h1>
-        <p class="hero__sub">Free naloxone training and kits for Plymouth and Devon communities</p>
-
-        <div class="hero__buttons">
-          <a class="btn btn--primary" href="#training">Book Free Training</a>
-          <a class="btn btn--soft" href="#contact">Request Naloxone Kit</a>
-        </div>
-
-        <div class="stats" aria-label="Impact statistics">
-          <div class="stat">
-            <div class="stat__num">500+</div>
-            <div class="stat__label">People Trained</div>
-          </div>
-          <div class="stat">
-            <div class="stat__num">1,200+</div>
-            <div class="stat__label">Naloxone Kits Distributed</div>
-          </div>
-          <div class="stat">
-            <div class="stat__num">150+</div>
-            <div class="stat__label">Lives Saved</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero__right">
-        <div class="heroCard" role="group" aria-label="Community training card">
-          <div class="heroCard__badge">Community training session</div>
-          <div class="heroCard__img" aria-hidden="true"></div>
-          <div class="heroCard__foot"><span class="dot"></span> Book now — spaces are limited</div>
-          <div class="right">
-            <a class="btn btn--dark" href="#training">Book Now</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Training -->
-  <section class="section section--tint" id="training">
+  <!-- HERO -->
+  <main id="home" class="hero">
     <div class="wrap">
-      <div class="section__head">
+      <div class="hero__grid">
+        <section class="heroCard heroCard--lime">
+          <span class="chip chip--pink">Get Naloxone Now</span>
+          <h1 class="heroTitle">Saving Lives<br>Through<br>Community Action</h1>
+          <p class="heroSub">Free naloxone training and kits for Plymouth and Devon communities</p>
+
+          <div class="heroBtns">
+            <a class="btn btn--pink" href="#training">Book Free Training <span class="btn__arrow">→</span></a>
+            <a class="btn btn--white" href="#contact">Request Naloxone Kit <span class="btn__arrow">→</span></a>
+          </div>
+        </section>
+
+        <aside class="heroCard heroCard--blue" aria-label="Community card">
+          <div class="photoRing" aria-hidden="true">
+            <div class="photoInner" aria-hidden="true"></div>
+          </div>
+          <div class="iconRow" aria-hidden="true">
+            <button class="miniBtn" type="button">📞</button>
+            <button class="miniBtn" type="button">✉️</button>
+            <button class="miniBtn" type="button">💚</button>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- STATS BAR -->
+    <div class="statsBar" aria-label="Impact stats">
+      <div class="wrap">
+        <div class="statsBar__grid">
+          <div class="statItem">
+            <div class="statNum">500+</div>
+            <div class="statLabel">People Trained</div>
+          </div>
+          <div class="statDivider" aria-hidden="true"></div>
+          <div class="statItem">
+            <div class="statNum">1,200+</div>
+            <div class="statLabel">Naloxone Kits Distributed</div>
+          </div>
+          <div class="statDivider" aria-hidden="true"></div>
+          <div class="statItem">
+            <div class="statNum">150+</div>
+            <div class="statLabel">Lives Saved</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- TRAINING -->
+  <section id="training" class="section">
+    <div class="wrap">
+      <div class="sectionHead centerText">
+        <span class="chip chip--pink">Book Now</span>
         <h2>Upcoming Training Sessions</h2>
-        <p>Choose a session that works for you and add it to your booking cart</p>
+        <p class="muted">Choose a session that works for you and add it to your booking cart</p>
       </div>
 
-      <div class="grid grid--3">
-        <div class="card">
-          <div class="card__top"><h3>Community Training</h3><span class="tag">Free</span></div>
-          <div class="meta">15 Feb 2025 • 10:00 AM</div>
-          <div class="muted small">Plymouth Community Centre</div>
-          <div class="right">
-            <button class="btn btn--primary btn--block add" data-item="Community Training — 15 Feb 2025 — 10:00 AM — Plymouth Community Centre" type="button">Add to Cart</button>
+      <div class="cardsGrid cardsGrid--3">
+        <article class="infoCard">
+          <div class="infoCard__top">
+            <span class="pill pill--blue">Community Training</span>
+            <span class="pill pill--green">Free</span>
           </div>
-        </div>
-
-        <div class="card">
-          <div class="card__top"><h3>Peer-to-Peer (P2P)</h3><span class="tag">Free</span></div>
-          <div class="meta">22 Feb 2025 • 2:00 PM</div>
-          <div class="muted small">Devonport Guildhall</div>
-          <div class="right">
-            <button class="btn btn--primary btn--block add" data-item="Peer-to-Peer (P2P) — 22 Feb 2025 — 2:00 PM — Devonport Guildhall" type="button">Add to Cart</button>
+          <div class="infoRow">📅 <span class="muted">15 Feb 2025</span></div>
+          <div class="infoRow">⏰ <span class="muted">10:00 AM</span></div>
+          <div class="infoRow">📍 <span class="muted">Plymouth Community Centre</span></div>
+          <div class="centerRow">
+            <button class="btn btn--yellow btn--block add" data-item="Community Training — 15 Feb 2025 — 10:00 AM — Plymouth Community Centre" type="button">
+              🛒 Add to Cart
+            </button>
           </div>
-        </div>
+        </article>
 
-        <div class="card">
-          <div class="card__top"><h3>Organisational Training</h3><span class="tag">Free</span></div>
-          <div class="meta">1 Mar 2025 • 9:00 AM</div>
-          <div class="muted small">Your Workplace</div>
-          <div class="right">
-            <button class="btn btn--primary btn--block add" data-item="Organisational Training — 1 Mar 2025 — 9:00 AM — Your Workplace" type="button">Add to Cart</button>
+        <article class="infoCard">
+          <div class="infoCard__top">
+            <span class="pill pill--purple">Peer-to-Peer (P2P)</span>
+            <span class="pill pill--green">Free</span>
           </div>
-        </div>
-
-        <div class="card">
-          <div class="card__top"><h3>Community Training</h3><span class="tag">Free</span></div>
-          <div class="meta">8 Mar 2025 • 11:00 AM</div>
-          <div class="muted small">Stonehouse Community Hub</div>
-          <div class="right">
-            <button class="btn btn--primary btn--block add" data-item="Community Training — 8 Mar 2025 — 11:00 AM — Stonehouse Community Hub" type="button">Add to Cart</button>
+          <div class="infoRow">📅 <span class="muted">22 Feb 2025</span></div>
+          <div class="infoRow">⏰ <span class="muted">2:00 PM</span></div>
+          <div class="infoRow">📍 <span class="muted">Devonport Guildhall</span></div>
+          <div class="centerRow">
+            <button class="btn btn--yellow btn--block add" data-item="Peer-to-Peer (P2P) — 22 Feb 2025 — 2:00 PM — Devonport Guildhall" type="button">
+              🛒 Add to Cart
+            </button>
           </div>
-        </div>
+        </article>
 
-        <div class="card">
-          <div class="card__top"><h3>Evening P2P Session</h3><span class="tag">Free</span></div>
-          <div class="meta">15 Mar 2025 • 6:00 PM</div>
-          <div class="muted small">Plymouth Central Library</div>
-          <div class="right">
-            <button class="btn btn--primary btn--block add" data-item="Evening P2P Session — 15 Mar 2025 — 6:00 PM — Plymouth Central Library" type="button">Add to Cart</button>
+        <article class="infoCard">
+          <div class="infoCard__top">
+            <span class="pill pill--indigo">Organisational Training</span>
+            <span class="pill pill--green">Free</span>
           </div>
-        </div>
+          <div class="infoRow">📅 <span class="muted">1 Mar 2025</span></div>
+          <div class="infoRow">⏰ <span class="muted">9:00 AM</span></div>
+          <div class="infoRow">📍 <span class="muted">Your Workplace</span></div>
+          <div class="centerRow">
+            <button class="btn btn--yellow btn--block add" data-item="Organisational Training — 1 Mar 2025 — 9:00 AM — Your Workplace" type="button">
+              🛒 Add to Cart
+            </button>
+          </div>
+        </article>
 
-        <div class="card card--cta">
-          <h3>View All Training Options</h3>
-          <p class="muted">Want a different time or an organisational session?</p>
-          <div class="center"><a class="btn btn--dark btn--block" href="#contact">Request a session</a></div>
-        </div>
+        <article class="infoCard">
+          <div class="infoCard__top">
+            <span class="pill pill--blue">Community Training</span>
+            <span class="pill pill--green">Free</span>
+          </div>
+          <div class="infoRow">📅 <span class="muted">8 Mar 2025</span></div>
+          <div class="infoRow">⏰ <span class="muted">11:00 AM</span></div>
+          <div class="infoRow">📍 <span class="muted">Stonehouse Community Hub</span></div>
+          <div class="centerRow">
+            <button class="btn btn--yellow btn--block add" data-item="Community Training — 8 Mar 2025 — 11:00 AM — Stonehouse Community Hub" type="button">
+              🛒 Add to Cart
+            </button>
+          </div>
+        </article>
+
+        <article class="infoCard">
+          <div class="infoCard__top">
+            <span class="pill pill--purple">Evening P2P Session</span>
+            <span class="pill pill--green">Free</span>
+          </div>
+          <div class="infoRow">📅 <span class="muted">15 Mar 2025</span></div>
+          <div class="infoRow">⏰ <span class="muted">6:00 PM</span></div>
+          <div class="infoRow">📍 <span class="muted">Plymouth Central Library</span></div>
+          <div class="centerRow">
+            <button class="btn btn--yellow btn--block add" data-item="Evening P2P Session — 15 Mar 2025 — 6:00 PM — Plymouth Central Library" type="button">
+              🛒 Add to Cart
+            </button>
+          </div>
+        </article>
+
+        <article class="infoCard infoCard--cta centerText">
+          <h3 style="margin:0 0 6px;">View All Training Options</h3>
+          <p class="muted" style="margin:0 0 12px;">Want a different time or an organisational session?</p>
+          <a class="btn btn--blue btn--block" href="#contact">View All Training Options <span class="btn__arrow">→</span></a>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- About -->
-  <section class="section" id="about">
+  <!-- ABOUT + QUOTE -->
+  <section id="about" class="section">
     <div class="wrap split">
       <div>
-        <div class="section__head" style="text-align:left;">
-          <h2>Who We Are</h2>
-          <p class="big">A Grassroots Movement for Harm Reduction</p>
-        </div>
-
-        <p class="muted" style="margin:0 0 10px;">
+        <span class="chip chip--pink">Who We Are</span>
+        <div class="h2">A Grassroots Movement<br>for Harm Reduction</div>
+        <p class="muted small">
           Naloxone Advocates Plymouth CIC is a community-led organisation dedicated to reducing drug-related deaths through education, training, and direct action.
         </p>
-        <p class="muted" style="margin:0 0 10px;">
+        <p class="muted small">
           We are a peer-led, lived-experience team who understand the challenges faced by people who use drugs. Our approach is rooted in compassion, dignity, and the belief that every life matters.
         </p>
-        <p class="muted" style="margin:0 0 10px;">
+        <p class="muted small">
           Through our Peer-to-Peer (P2P) project, we provide free naloxone training and kits across Plymouth and Devon, creating a safer community for everyone.
         </p>
 
-        <div class="right"><a class="btn btn--soft" href="#contact">Read Our Story</a></div>
+        <div style="margin-top:14px;">
+          <a class="btn btn--lime" href="#contact">Read Our Story</a>
+        </div>
       </div>
 
-      <aside class="quote">
-        <p class="quote__text">"This organisation saved my life. The training was non-judgemental, practical, and gave me the confidence to help others in my community."</p>
-        <div class="quote__by">
+      <aside class="quoteCard">
+        <p class="quoteText">“This organisation saved my life. The training was non-judgemental, practical, and gave me the confidence to help others in my community.”</p>
+        <div class="quoteBy">
           <div class="avatar">JM</div>
           <div>
-            <div class="quote__name">Community Member</div>
+            <div class="quoteName">Community Member</div>
             <div class="muted small">Plymouth</div>
           </div>
         </div>
@@ -181,241 +223,309 @@
     </div>
   </section>
 
-  <!-- Programs -->
-  <section class="section section--tint">
+  <!-- PROGRAMS (LIME BAND) -->
+  <section class="band band--lime">
     <div class="wrap">
-      <div class="section__head">
-        <h2>Free Naloxone Training Programs</h2>
-        <p>Choose the support that fits you</p>
+      <div class="centerText">
+        <h2 style="margin:0 0 14px;">Free Naloxone Training Programs</h2>
       </div>
 
-      <div class="grid grid--3">
-        <div class="card">
-          <h3>Community Training</h3>
-          <ul class="list">
+      <div class="cardsGrid cardsGrid--3">
+        <article class="programCard">
+          <div class="programIcon">👥</div>
+          <h3 style="margin:0 0 10px;">Community Training</h3>
+          <ul>
             <li>Learn to recognise overdose signs</li>
             <li>How to administer naloxone safely</li>
             <li>Free naloxone kit provided</li>
             <li>Certificate of completion</li>
           </ul>
-          <div class="right"><a class="btn btn--dark btn--block" href="#training">Learn More</a></div>
-        </div>
+          <a class="btn btn--yellow btn--block" href="#training">Learn More</a>
+        </article>
 
-        <div class="card">
-          <h3>Peer-to-Peer (P2P)</h3>
-          <ul class="list">
+        <article class="programCard programCard--highlight">
+          <div class="programIcon">🤝</div>
+          <h3 style="margin:0 0 10px;">Peer-to-Peer (P2P)</h3>
+          <ul>
             <li>Lived-experience led training</li>
             <li>Stigma-free, supportive environment</li>
             <li>Ongoing peer support network</li>
             <li>Community outreach opportunities</li>
           </ul>
-          <div class="right"><a class="btn btn--dark btn--block" href="#training">Learn More</a></div>
-        </div>
+          <a class="btn btn--yellow btn--block" href="#training">Learn More</a>
+        </article>
 
-        <div class="card">
-          <h3>Organisational Training</h3>
-          <ul class="list">
+        <article class="programCard">
+          <div class="programIcon">🏢</div>
+          <h3 style="margin:0 0 10px;">Organisational Training</h3>
+          <ul>
             <li>Tailored for workplaces &amp; services</li>
             <li>Group sessions available</li>
             <li>Policy guidance included</li>
             <li>Flexible scheduling options</li>
           </ul>
-          <div class="right"><a class="btn btn--dark btn--block" href="#contact">Learn More</a></div>
-        </div>
+          <a class="btn btn--yellow btn--block" href="#contact">Learn More</a>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- Get Naloxone -->
-  <section class="section" id="get">
+  <!-- HOW TO GET -->
+  <section id="get" class="section">
     <div class="wrap">
-      <div class="section__head">
-        <h2>How to Get Naloxone</h2>
-        <p>Two simple steps</p>
+      <div class="centerText">
+        <h2 style="margin:0;">How to Get Naloxone</h2>
       </div>
 
-      <div class="steps">
-        <div class="card step">
-          <div class="step__num">1</div>
-          <div>
-            <h3>Book Free Training</h3>
-            <p class="muted">Attend one of our free naloxone training sessions. Learn how to recognise an overdose and administer naloxone safely and confidently.</p>
-            <a class="link" href="#training">Book Training</a>
+      <div class="howGrid">
+        <article class="howCard howCard--blue">
+          <div class="howNum">1</div>
+          <h3>Book Free Training</h3>
+          <p>Attend one of our free naloxone training sessions. Learn how to recognise an overdose and administer naloxone safely and confidently.</p>
+          <a class="btn btn--yellow" href="#training">Book Training</a>
+        </article>
+
+        <div class="howArrow" aria-hidden="true">→</div>
+
+        <article class="howCard howCard--pink">
+          <div class="howNum">2</div>
+          <h3>Get Your Kit</h3>
+          <p>Receive your free naloxone kit at the end of training. You’ll have everything you need to respond to an overdose emergency.</p>
+          <a class="btn btn--blue" href="#contact">Get Your Kit</a>
+        </article>
+      </div>
+
+      <div class="alertBar" role="note" aria-label="Emergency advice">
+        <div class="alertIcon">🚨</div>
+        <div class="small" style="font-weight:900;">
+          In an Emergency
+          <div class="muted small" style="font-weight:800;">
+            Always call 999 first. Naloxone is a temporary measure — professional medical help is essential.
           </div>
         </div>
-
-        <div class="card step">
-          <div class="step__num">2</div>
-          <div>
-            <h3>Get Your Kit</h3>
-            <p class="muted">Receive your free naloxone kit at the end of training. You'll have everything you need to respond to an overdose emergency.</p>
-            <a class="link" href="#contact">Get Your Kit</a>
-          </div>
-        </div>
       </div>
-
-      <div class="alert">In an Emergency: Always call 999 first. Naloxone is a temporary measure — professional medical help is essential.</div>
     </div>
   </section>
 
-  <!-- Volunteer -->
-  <section class="section section--tint" id="volunteer">
+  <!-- VOLUNTEER (GRADIENT BAND) -->
+  <section id="volunteer" class="band band--gradient">
     <div class="wrap">
-      <div class="section__head">
-        <h2>Join Our Community</h2>
-        <p>Ways you can help</p>
+      <div class="centerText whiteText">
+        <h2 style="margin:0 0 6px;">Join Our Community</h2>
+        <p style="margin:0; opacity:.9; font-weight:800;">Ways you can help</p>
       </div>
 
-      <div class="grid grid--4">
-        <div class="card">
-          <h3>Peer Trainer</h3>
-          <p class="muted">Share your lived experience and help train others. Full training and ongoing support provided.</p>
-          <div class="right"><a class="btn btn--soft btn--block" href="#contact">Learn More</a></div>
-        </div>
+      <div class="cardsGrid cardsGrid--2" style="margin-top:18px;">
+        <article class="whiteCard">
+          <div class="miniIcon miniIcon--yellow">👤</div>
+          <h3 style="margin:0 0 6px;">Peer Trainer</h3>
+          <p class="muted small" style="margin:0 0 10px;">Share your lived experience and help train others. Full training and ongoing support provided.</p>
+          <a class="linkRow" href="#contact">Learn More <span>→</span></a>
+        </article>
 
-        <div class="card">
-          <h3>Outreach Volunteer</h3>
-          <p class="muted">Help us reach people who need naloxone. Distribute kits and information at events and on the streets.</p>
-          <div class="right"><a class="btn btn--soft btn--block" href="#contact">Learn More</a></div>
-        </div>
+        <article class="whiteCard">
+          <div class="miniIcon miniIcon--lime">📣</div>
+          <h3 style="margin:0 0 6px;">Outreach Volunteer</h3>
+          <p class="muted small" style="margin:0 0 10px;">Help us reach people who need naloxone. Distribute kits and info at events and on the streets.</p>
+          <a class="linkRow" href="#contact">Learn More <span>→</span></a>
+        </article>
 
-        <div class="card">
-          <h3>Event Support</h3>
-          <p class="muted">Help at community events, awareness campaigns, and fundraising activities.</p>
-          <div class="right"><a class="btn btn--soft btn--block" href="#contact">Learn More</a></div>
-        </div>
+        <article class="whiteCard">
+          <div class="miniIcon miniIcon--pink">🎟️</div>
+          <h3 style="margin:0 0 6px;">Event Support</h3>
+          <p class="muted small" style="margin:0 0 10px;">Help at community events, awareness campaigns, and fundraising activities.</p>
+          <a class="linkRow" href="#contact">Learn More <span>→</span></a>
+        </article>
 
-        <div class="card">
-          <h3>Behind the Scenes</h3>
-          <p class="muted">Support with admin, social media, design, or other skills. Work remotely or in-person based on your availability.</p>
-          <div class="right"><a class="btn btn--soft btn--block" href="#contact">Learn More</a></div>
-        </div>
+        <article class="whiteCard">
+          <div class="miniIcon miniIcon--blue">🧩</div>
+          <h3 style="margin:0 0 6px;">Behind the Scenes</h3>
+          <p class="muted small" style="margin:0 0 10px;">Support with admin, social media, design, or other skills. Work remote or in-person.</p>
+          <a class="linkRow" href="#contact">Learn More <span>→</span></a>
+        </article>
       </div>
 
-      <div class="center"><a class="btn btn--primary" href="#contact">Sign Up to Volunteer</a></div>
+      <div class="centerRow">
+        <a class="btn btn--yellow" href="#contact">Sign Up to Volunteer</a>
+      </div>
     </div>
   </section>
 
-  <!-- Resources -->
-  <section class="section" id="resources">
+  <!-- RESOURCES -->
+  <section id="resources" class="section">
     <div class="wrap">
-      <div class="section__head">
-        <h2>Free Resources</h2>
-        <p>Download Our Harm Reduction Resources</p>
+      <span class="chip chip--lime">Free Resources</span>
+      <h2 style="margin:8px 0 6px;">Download Our Harm Reduction Resources</h2>
+
+      <div class="cardsGrid cardsGrid--3">
+        <article class="resourceCard resourceCard--yellow">
+          <div class="resourceIcon">📄</div>
+          <h3 style="margin:0 0 6px;">Overdose Response Guide</h3>
+          <p class="muted small" style="margin:0 0 10px;">Step-by-step instructions for responding to an opioid overdose</p>
+          <a class="resourceLink" href="#" onclick="alert('Add your PDF link here'); return false;">↘ Download PDF</a>
+        </article>
+
+        <article class="resourceCard resourceCard--blue">
+          <div class="resourceIcon">🧰</div>
+          <h3 style="margin:0 0 6px;">Naloxone Administration</h3>
+          <p class="muted small" style="margin:0 0 10px;">Visual guide to administering naloxone nasal spray</p>
+          <a class="resourceLink" href="#" onclick="alert('Add your PDF link here'); return false;">↘ Download PDF</a>
+        </article>
+
+        <article class="resourceCard resourceCard--pink">
+          <div class="resourceIcon">💟</div>
+          <h3 style="margin:0 0 6px;">Harm Reduction Poster</h3>
+          <p class="muted small" style="margin:0 0 10px;">Community awareness poster for public spaces</p>
+          <a class="resourceLink" href="#" onclick="alert('Add your PDF link here'); return false;">↘ Download PDF</a>
+        </article>
       </div>
 
-      <div class="grid grid--3">
-        <div class="card">
-          <h3>Overdose Response Guide</h3>
-          <p class="muted">Step-by-step instructions for responding to an opioid overdose</p>
-          <div class="right"><a class="btn btn--dark btn--block" href="#" onclick="alert('Add your PDF link here'); return false;">Download PDF</a></div>
-        </div>
-
-        <div class="card">
-          <h3>Naloxone Administration</h3>
-          <p class="muted">Visual guide to administering naloxone nasal spray</p>
-          <div class="right"><a class="btn btn--dark btn--block" href="#" onclick="alert('Add your PDF link here'); return false;">Download PDF</a></div>
-        </div>
-
-        <div class="card">
-          <h3>Harm Reduction Poster</h3>
-          <p class="muted">Community awareness poster for public spaces</p>
-          <div class="right"><a class="btn btn--dark btn--block" href="#" onclick="alert('Add your PDF link here'); return false;">Download PDF</a></div>
-        </div>
+      <div class="centerRow">
+        <a class="btn btn--pink" href="#contact">View All Resources <span class="btn__arrow">→</span></a>
       </div>
-
-      <div class="center"><a class="btn btn--soft" href="#contact">View All Resources</a></div>
     </div>
   </section>
 
-  <!-- News -->
-  <section class="section section--tint">
-    <div class="wrap">
-      <div class="section__head">
-        <h2>News &amp; Announcements</h2>
-        <p>Stay informed about our latest initiatives, events, and community impact</p>
-      </div>
-
-      <div class="grid grid--2">
-        <div class="card">
-          <div class="card__top"><h3>Plymouth Council Partners with Naloxone Advocates for City-Wide Training</h3><span class="chip">Partnership</span></div>
-          <p class="muted small" style="margin:10px 0 0;">28 Jan 2025</p>
-          <p class="muted" style="margin:10px 0 0;">A new partnership will see naloxone training offered at all community centres across Plymouth.</p>
-          <div class="right"><a class="link" href="#contact">Read Full Story</a></div>
-        </div>
-
-        <div class="card">
-          <div class="card__top"><h3>150 Lives Saved: Celebrating Our Community Impact</h3><span class="chip">Milestone</span></div>
-          <p class="muted small" style="margin:10px 0 0;">20 Jan 2025</p>
-          <p class="muted" style="margin:10px 0 0;">Naloxone distributed through our program has now been used to reverse over 150 overdoses.</p>
-          <div class="right"><a class="link" href="#contact">Read More</a></div>
-        </div>
-      </div>
-
-      <div class="center"><a class="btn btn--primary" href="#contact">View All News</a></div>
-    </div>
-  </section>
-
-  <!-- Community Voices -->
+  <!-- NEWS (simple) -->
   <section class="section">
     <div class="wrap">
-      <div class="section__head">
-        <h2>Community Voices</h2>
-        <p>What people say about Naloxone Advocates</p>
+      <div class="centerText">
+        <span class="pill pill--blue">Latest Updates</span>
+        <h2 style="margin:10px 0 6px;">News &amp; Announcements</h2>
+        <p class="muted">Stay informed about our latest initiatives, events, and community impact</p>
       </div>
 
-      <div class="grid grid--2">
-        <div class="card">
-          <div class="voiceTop"><div class="avatar">SH</div><div><div class="voiceName">Sarah H.</div><div class="muted small">Peer Trainer</div></div></div>
-          <p class="muted">"Being part of this organisation has given me purpose. I've used naloxone twice now and saved two lives."</p>
-        </div>
+      <div class="cardsGrid cardsGrid--2">
+        <article class="infoCard">
+          <div class="infoCard__top">
+            <span class="chip chip--pink">Partnership</span>
+            <span class="muted small">28 Jan 2025</span>
+          </div>
+          <h3 style="margin:6px 0;">Plymouth Council Partners with Naloxone Advocates for City-Wide Training</h3>
+          <p class="muted small">A new partnership will see naloxone training offered at all community centres across Plymouth.</p>
+          <a class="linkRow" href="#contact">Read Full Story <span>→</span></a>
+        </article>
 
-        <div class="card">
-          <div class="voiceTop"><div class="avatar">LT</div><div><div class="voiceName">Lisa T.</div><div class="muted small">Outreach Volunteer</div></div></div>
-          <p class="muted">"Volunteering with Naloxone Advocates has been incredibly rewarding. The peer-led approach means we're helping our own community."</p>
-        </div>
-
-        <div class="card">
-          <div class="voiceTop"><div class="avatar">DM</div><div><div class="voiceName">David M.</div><div class="muted small">Community Member</div></div></div>
-          <p class="muted">"I was nervous about attending, but the team made me feel so welcome. No judgement, just practical information."</p>
-        </div>
-
-        <div class="card">
-          <div class="voiceTop"><div class="avatar">RC</div><div><div class="voiceName">Robert C.</div><div class="muted small">Family Member</div></div></div>
-          <p class="muted">"This training gave me the tools and confidence to keep him safe. I can't thank this team enough for what they do."</p>
-        </div>
+        <article class="infoCard">
+          <div class="infoCard__top">
+            <span class="chip chip--lime">Milestone</span>
+            <span class="muted small">20 Jan 2025</span>
+          </div>
+          <h3 style="margin:6px 0;">150 Lives Saved: Celebrating Our Community Impact</h3>
+          <p class="muted small">We’re proud to announce naloxone distributed through our program has now been used to reverse 150+ overdoses.</p>
+          <a class="linkRow" href="#contact">Read More <span>→</span></a>
+        </article>
       </div>
-    </div>
-  </section>
 
-  <!-- CTA / Contact -->
-  <section class="cta" id="contact">
-    <div class="wrap cta__inner">
-      <div>
-        <h2 style="margin:0; font-weight:1000; font-size:2rem;">Ready to Make a Difference?</h2>
-        <p class="muted" style="margin:.35rem 0 0; font-weight:650;">Join us in saving lives and building a safer, more compassionate community</p>
-      </div>
-      <div class="cta__buttons">
-        <a class="btn btn--primary" href="#training">Get Trained</a>
-        <a class="btn btn--dark" href="mailto:info@naloxoneadvocates.org">Contact Us</a>
+      <div class="centerRow">
+        <a class="btn btn--yellow" href="#contact">View All News <span class="btn__arrow">→</span></a>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- VOICES (BLUE BAND) -->
+  <section class="band band--blue">
+    <div class="wrap">
+      <div class="centerText whiteText">
+        <h2 style="margin:0 0 12px;">Community Voices</h2>
+      </div>
+
+      <div class="cardsGrid cardsGrid--2">
+        <article class="voiceCard">
+          <div class="voiceTop">
+            <div class="avatar avatar--yellow">SH</div>
+            <div>
+              <div class="voiceName">Sarah H.</div>
+              <div class="muted small">Peer Trainer</div>
+            </div>
+          </div>
+          <p class="muted small">“Being part of this organisation has given me purpose. I’ve used naloxone twice now and saved two lives.”</p>
+          <div class="stars">★★★★★</div>
+        </article>
+
+        <article class="voiceCard">
+          <div class="voiceTop">
+            <div class="avatar avatar--lime">LT</div>
+            <div>
+              <div class="voiceName">Lisa T.</div>
+              <div class="muted small">Outreach Volunteer</div>
+            </div>
+          </div>
+          <p class="muted small">“Volunteering has been incredibly rewarding. The peer-led approach means we’re helping our own community.”</p>
+          <div class="stars">★★★★★</div>
+        </article>
+
+        <article class="voiceCard">
+          <div class="voiceTop">
+            <div class="avatar avatar--pink">DM</div>
+            <div>
+              <div class="voiceName">David M.</div>
+              <div class="muted small">Community Member</div>
+            </div>
+          </div>
+          <p class="muted small">“I was nervous about attending, but the team made me feel so welcome. No judgement, just practical information.”</p>
+          <div class="stars">★★★★★</div>
+        </article>
+
+        <article class="voiceCard">
+          <div class="voiceTop">
+            <div class="avatar avatar--blue">RC</div>
+            <div>
+              <div class="voiceName">Robert C.</div>
+              <div class="muted small">Family Member</div>
+            </div>
+          </div>
+          <p class="muted small">“This training gave me the tools and confidence to keep my son safe. I can’t thank this team enough.”</p>
+          <div class="stars">★★★★★</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA (LIME BAND LIKE SCREENSHOT) -->
+  <section id="contact" class="band band--lime2">
+    <div class="wrap centerText">
+      <h2 style="margin:0 0 6px;">Ready to Make a Difference?</h2>
+      <p class="muted" style="margin:0;">Join us in saving lives and building a safer, more compassionate community</p>
+
+      <div class="ctaBtns">
+        <a class="btn btn--pink" href="#training">Get Trained <span class="btn__arrow">→</span></a>
+        <a class="btn btn--blue" href="mailto:info@naloxoneadvocates.org">Contact Us <span class="btn__arrow">→</span></a>
+      </div>
+
+      <div class="socialRow" aria-label="Social links">
+        <a class="socialBtn" href="#" onclick="alert('Add your phone link');return false;" aria-label="Phone">📞</a>
+        <a class="socialBtn" href="mailto:info@naloxoneadvocates.org" aria-label="Email">✉️</a>
+        <a class="socialBtn" href="#" onclick="alert('Add your Facebook link');return false;" aria-label="Facebook">f</a>
+        <a class="socialBtn" href="#" onclick="alert('Add your Instagram link');return false;" aria-label="Instagram">◎</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="wrap">
       <div class="footer__grid">
         <div>
-          <h3>Naloxone Advocates</h3>
-          <p class="muted" style="color:rgba(255,255,255,.75); font-weight:650; margin-top:10px;">
+          <div class="footerBrand">
+            <span class="footerDot" aria-hidden="true"></span>
+            <div class="footerBrandText">Naloxone Advocates</div>
+          </div>
+          <p class="footerMuted small" style="margin:0;">
             A grassroots, peer-led harm reduction organisation dedicated to saving lives through naloxone training and community support.
           </p>
+
+          <div class="footerSocial">
+            <a class="socialBtn socialBtn--dark" href="#" onclick="alert('Add link');return false;">f</a>
+            <a class="socialBtn socialBtn--dark" href="#" onclick="alert('Add link');return false;">◎</a>
+            <a class="socialBtn socialBtn--dark" href="#" onclick="alert('Add link');return false;">✉️</a>
+            <a class="socialBtn socialBtn--dark" href="#" onclick="alert('Add link');return false;">☎</a>
+          </div>
         </div>
 
         <div>
-          <h4>Quick Links</h4>
-          <div class="footer__links">
+          <h3 style="margin:0 0 10px;">Quick Links</h3>
+          <div class="footerLinks">
             <a href="#home">Home</a>
             <a href="#about">About Us</a>
             <a href="#training">Training &amp; P2P</a>
@@ -425,54 +535,50 @@
         </div>
 
         <div>
-          <h4>Get Help</h4>
-          <div class="footer__links">
-            <a href="#" onclick="return false;">Emergency: 999</a>
-            <a href="#" onclick="return false;">Phone: 01752 000 000</a>
+          <h3 style="margin:0 0 10px;">Get Help</h3>
+          <div class="footerLinks">
+            <a href="#" onclick="alert('Emergency info');return false;">Emergency: 999</a>
+            <a href="#" onclick="alert('Add phone number');return false;">Phone: 01752 000 000</a>
             <a href="mailto:info@naloxoneadvocates.org">Email: info@naloxoneadvocates.org</a>
-            <a href="#resources">Crisis Resources</a>
+            <a class="btn btn--yellow" href="#" onclick="alert('Add crisis resources link');return false;">Crisis Resources</a>
           </div>
         </div>
 
         <div>
-          <h4>Stay Connected</h4>
-          <div class="muted" style="color:rgba(255,255,255,.75); font-weight:650;">
-            Get updates on training sessions and harm reduction news
-          </div>
+          <h3 style="margin:0 0 10px;">Stay Connected</h3>
+          <p class="footerMuted small" style="margin:0;">Get updates on training sessions and harm reduction news</p>
           <form class="newsletter" onsubmit="event.preventDefault(); alert('Subscribed (hook up later).');">
-            <input required type="email" placeholder="Your email" />
-            <button class="btn btn--primary" type="submit">Sign Up</button>
+            <input required type="email" placeholder="Your email" aria-label="Email address" />
+            <button class="btn btn--pink" type="submit">Sign Up</button>
           </form>
         </div>
       </div>
 
-      <div class="footer__bottom">
+      <div class="footerBottom">
         <div class="banner">NALOXONE SAVES LIVES</div>
-        <div class="small" style="color:rgba(255,255,255,.70); font-weight:650;">
-          © 2025 Naloxone Advocates Plymouth CIC. All rights reserved. | Privacy Policy | Terms of Service
-        </div>
+        <div class="footerMuted small">© 2025 Naloxone Advocates Plymouth CIC. All rights reserved.</div>
       </div>
     </div>
   </footer>
 
-  <!-- Cart Modal -->
+  <!-- CART MODAL -->
   <div class="modal" id="cartModal" aria-hidden="true">
     <div class="modal__panel" role="dialog" aria-modal="true" aria-label="Booking cart">
       <div class="modal__head">
         <div>Booking Cart</div>
-        <button class="iconBtn" id="closeCart" aria-label="Close" type="button">✕</button>
+        <button class="iconBtn" id="closeCart" type="button" aria-label="Close">✕</button>
       </div>
       <div class="modal__body">
         <div class="muted" id="cartEmpty">Your cart is empty. Add a session to book.</div>
         <ul class="cartList" id="cartList"></ul>
 
-        <div class="right" style="gap:10px;">
-          <button class="btn btn--soft" id="clearCart" type="button">Clear</button>
-          <button class="btn btn--dark" id="emailCart" type="button">Email my booking request</button>
+        <div class="modalActions">
+          <button class="btn btn--white" id="clearCart" type="button">Clear</button>
+          <button class="btn btn--blue" id="emailCart" type="button">Email my booking request</button>
         </div>
 
         <p class="small muted" style="margin-top:10px;">
-          This opens your email app with your selected sessions (replace with a real booking form later).
+          This opens your email app with your selected sessions (replace later with a booking form if you want).
         </p>
       </div>
     </div>
@@ -495,8 +601,8 @@
         const li = document.createElement('li');
         li.className = 'cartItem';
         li.innerHTML = `
-          <div>${item}</div>
-          <button class="iconBtn" aria-label="Remove" type="button">✕</button>
+          <div class="cartItem__text">${item}</div>
+          <button class="iconBtn" type="button" aria-label="Remove">✕</button>
         `;
         li.querySelector('button').addEventListener('click', () => {
           cart.splice(idx, 1);
@@ -525,8 +631,8 @@
       btn.addEventListener('click', () => {
         cart.push(btn.dataset.item);
         updateCount();
-        btn.style.opacity = '0.85';
-        setTimeout(() => btn.style.opacity = '1', 140);
+        btn.classList.add('pulse');
+        setTimeout(() => btn.classList.remove('pulse'), 140);
       });
     });
 
@@ -540,17 +646,19 @@
       if(!cart.length){ alert('Your cart is empty.'); return; }
       const subject = encodeURIComponent('Training booking request');
       const body = encodeURIComponent(
-        "Hi Naloxone Advocates Plymouth,\\n\\nI'd like to book the following training session(s):\\n\\n" +
-        cart.map((x,i)=>`${i+1}. ${x}`).join("\\n") +
-        "\\n\\nMy name:\\nMy phone:\\nAny access needs:\\n\\nThanks!"
+        "Hi Naloxone Advocates Plymouth,\n\nI'd like to book the following training session(s):\n\n" +
+        cart.map((x,i)=>`${i+1}. ${x}`).join("\n") +
+        "\n\nMy name:\nMy phone:\nAny access needs:\n\nThanks!"
       );
       window.location.href = `mailto:info@naloxoneadvocates.org?subject=${subject}&body=${body}`;
     });
 
     updateCount();
   </script>
+
 </body>
 </html>
+
 
 
 
