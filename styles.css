@@ -787,5 +787,83 @@ a{ color:inherit; text-decoration:none; }
   font-weight: 900;
   letter-spacing: .2px;
 }
+/* =========================
+   QUICK FIXES (make it match screenshots)
+   Paste at END of styles.css
+========================= */
+
+/* Top nav + brand text bigger */
+.brand__name{ font-size:13px !important; }
+.brand__sub{ font-size:16px !important; }
+.nav__link{ font-size:14px !important; padding:9px 12px !important; }
+
+/* Stats bar: bigger label + yellow bottom line */
+.statNum{ font-size:30px !important; font-weight:900 !important; }
+.statLabel{ font-size:14px !important; font-weight:800 !important; }
+.statsBar{
+  border-bottom: 10px solid var(--yellow) !important;
+}
+
+/* Quote box depth */
+.quoteCard, .quote{
+  box-shadow: 0 22px 55px rgba(16,24,40,.16) !important;
+  border: 1px solid rgba(16,24,40,.10) !important;
+  transform: translateY(-2px);
+}
+.quoteCard:hover, .quote:hover{
+  transform: translateY(-4px);
+}
+
+/* “Grassroots” / About main box: thicker + deeper */
+.aboutCard, .aboutBox, .grassrootsBox{
+  border: 2px solid rgba(16,24,40,.12) !important;
+  box-shadow: 0 24px 60px rgba(16,24,40,.14) !important;
+}
+
+/* Resources cards: add coloured half background behind emoji */
+.resourceCard{
+  position:relative;
+  overflow:hidden;
+}
+.resourceTop{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:10px;
+}
+.resourceIcon{
+  width:54px;
+  height:44px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  font-size:20px;
+  font-weight:900;
+  position:relative;
+  background:#fff;
+  border: 1px solid rgba(16,24,40,.10);
+  box-shadow: 0 10px 18px rgba(16,24,40,.10);
+}
+/* the “half colour” */
+.resourceIcon::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  width:55%;
+  border-radius:14px;
+  opacity:.95;
+  z-index:0;
+}
+.resourceIcon > span{ position:relative; z-index:1; }
+
+/* colour options */
+.resourceIcon--yellow::before{ background: var(--yellow2); }
+.resourceIcon--blue::before{ background: var(--blue2); }
+.resourceIcon--pink::before{ background: var(--pink); }
+.resourceIcon--lime::before{ background: var(--lime); }
+
+/* Make section headings slightly larger */
+.sectionHead h2{ font-size:28px !important; }
+.sectionHead p{ font-size:15px !important; }
 
 
