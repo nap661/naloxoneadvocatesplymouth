@@ -664,3 +664,61 @@ a{ color:inherit; text-decoration:none; }
 .resourceIcon--yellow::before{ background: rgba(246,196,0,.55); }
 .resourceIcon--blue::before{ background: rgba(47,111,237,.55); }
 .resourceIcon--pink::before{ background: rgba(233,58,139,.55); }
+/* ===== RESOURCES CARDS (match screenshot) ===== */
+.resourceCard{
+  background:#fff;
+  border-radius: var(--radius2);
+  overflow:hidden;
+  box-shadow: 0 14px 26px rgba(16,24,40,.12);
+  border: 1px solid rgba(16,24,40,.08);
+}
+
+.resourceCard__top{
+  height: 110px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.resourceCard__icon{
+  width:56px;
+  height:56px;
+  border-radius: 18px;
+  display:grid;
+  place-items:center;
+  background: rgba(255,255,255,.20);
+  color:#fff;
+  font-size:22px;
+  font-weight:900;
+  box-shadow: 0 10px 18px rgba(16,24,40,.12);
+}
+
+.resourceCard__body{
+  padding: 16px 18px 18px;
+}
+
+.resourceCard__body h3{
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 1000;
+}
+
+.resourceCard__body p{
+  margin: 0 0 10px;
+  font-size: 13px;
+}
+
+.resourceLink{
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+  font-weight:900;
+  color: var(--blue2);
+  text-decoration:none;
+}
+.resourceLink:hover{ text-decoration:underline; }
+
+/* Top colours */
+.resourceCard--yellow .resourceCard__top{ background: var(--yellow); }
+.resourceCard--blue   .resourceCard__top{ background: var(--blue2); }
+.resourceCard--pink   .resourceCard__top{ background: var(--pink); }
